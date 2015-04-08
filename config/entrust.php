@@ -29,7 +29,7 @@ return array(
     | This is the roles table used by Entrust to save roles to the database.
     |
     */
-    'roles_table' => 'roles',
+    'roles_table' => '_roles',
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ return array(
     | database.
     |
     */
-    'permissions_table' => 'permissions',
+    'permissions_table' => '_permissions',
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +62,7 @@ return array(
     | between permissions and roles to the database.
     |
     */
-    'permission_role_table' => 'permission_role',
+    'permission_role_table' => '_permission_role',
 
     /*
     |--------------------------------------------------------------------------
@@ -73,6 +73,6 @@ return array(
     | database.
     |
     */
-    'role_user_table' => 'role_user',
+    'role_user_table' => '_role_user',
 
 );
