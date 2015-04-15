@@ -23,7 +23,11 @@ Route::filter('Sentry', function()
  	}
 });
 
-Route::get('/', 'WelcomeController@index');
+/*Route::get('/', 'WelcomeController@index');*/
+
+Route::get('/', 'JoshController@showHome');
+
+
 Route::group(array('prefix' => 'admin'), function () {
 
 	# Error pages should be shown without requiring login
