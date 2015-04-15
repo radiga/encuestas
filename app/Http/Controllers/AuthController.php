@@ -12,7 +12,7 @@ use Session;
 use Redirect;
 use Lang;
 use URL;
-class AuthController extends JoshController
+class AuthController extends BegarController
 {
     /**
      * Account sign in.

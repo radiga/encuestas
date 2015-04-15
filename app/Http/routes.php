@@ -19,13 +19,13 @@
 Route::filter('Sentry', function()
 {
 	if ( ! Sentry::check()) {
- 		return Redirect::to('admin/signin')->with('error', 'You must be logged in!');
+ 		return Redirect::to('admin/signin')->with('error', 'Debes hacer login!');
  	}
 });
 
 /*Route::get('/', 'WelcomeController@index');*/
 
-Route::get('/', 'JoshController@showHome');
+Route::get('/', 'BegarController@showHome');
 
 
 Route::group(array('prefix' => 'admin'), function () {
@@ -70,7 +70,7 @@ Route::group(array('prefix' => 'admin'), function () {
     Route::get('activate/{activationCode}', array('as' => 'activate', 'uses' => 'AuthController@getActivate'));
 
     # Dashboard / Index
-	Route::get('/', array('as' => 'dashboard','uses' => 'JoshController@showHome'));
+	Route::get('/', array('as' => 'dashboard','uses' => 'BegarController@showHome'));
 
 
 
@@ -102,10 +102,10 @@ Route::group(array('prefix' => 'admin'), function () {
 		Route::get('admin_only', 'UsersController@getAdminOnlyAccess');
     });	
 
-    Route::post('crop_demo','JoshController@crop_demo');
+    Route::post('crop_demo','BegarController@crop_demo');
 	# Remaining pages will be called from below controller method
 	# in real world scenario, you may be required to define all routes manually
-	Route::get('{name?}', 'JoshController@showView');
+	Route::get('{name?}', 'BegarController@showView');
 	
 	
 

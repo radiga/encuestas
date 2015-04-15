@@ -8,7 +8,7 @@ use Cartalyst\Sentry\Users\UserExistsException;
 use Cartalyst\Sentry\Users\UserNotFoundException;
 use View;
 
-class JoshController extends Controller {
+class BegarController extends Controller {
 
 	/**
 	* Crop Demo
