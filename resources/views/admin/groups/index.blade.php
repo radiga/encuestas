@@ -16,7 +16,7 @@
                 Dashboard
             </a>
         </li>
-        <li>Groups</li>
+        <li>Grupos</li>
         <li class="active">Groups</li>
     </ol>
 </section>

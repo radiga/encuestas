@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Admin Login | Josh Admin Template</title>
+    <title>Admin Login Plantilla</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- global level css -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
@@ -18,7 +18,7 @@
             <div class=" col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3  col-md-5 col-md-offset-4 col-lg-4 col-lg-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title text-center">Forgot Password</h3>
+                        <h3 class="panel-title text-center">No recuerdo mi contraseña</h3>
                     </div>
                     <div class="panel-body">
                         <form method="post" action="" class="form-horizontal">
