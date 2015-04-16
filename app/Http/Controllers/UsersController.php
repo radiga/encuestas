@@ -15,7 +15,7 @@ use Mail;
 use File;
 use App\User;
 
-class UsersController extends JoshController
+class UsersController extends BegarController
 {
     protected $countries = array(
         ""   => "Select Country",

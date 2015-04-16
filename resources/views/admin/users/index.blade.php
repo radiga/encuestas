@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Users List
+Lista de Usuarios
 @parent
 @stop
 
@@ -20,7 +20,7 @@ Users List
     <ol class="breadcrumb">
         <li>
             <a href="{{ route('dashboard') }}"> <i class="livicon" data-name="home" data-size="16" data-color="#000"></i>
-                Dashboard
+                Inicio
             </a>
         </li>
         <li>Users</li>
@@ -42,9 +42,9 @@ Users List
                 <table class="table table-bordered " id="table">
                     <thead>
                         <tr class="filters">
-                            <th>ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>@lang('users/table.id')</th>
+                            <th>@lang('users/table.firstname')</th>
+                            <th>@lang('users/table.lastname')</th>
                             <th>User E-mail</th>
                             <th>Status</th>
                             <th>Created At</th>

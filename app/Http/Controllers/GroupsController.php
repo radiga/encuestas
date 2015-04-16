@@ -8,7 +8,7 @@ use Lang;
 use URL;
 use Cartalyst\Sentry\Groups\GroupNotFoundException;
 
-class GroupsController extends JoshController
+class GroupsController extends BegarController
 {
     /**
      * Show a list of all the groups.
