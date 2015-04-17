@@ -28,7 +28,7 @@
             <div class="panel panel-primary ">
                 <div class="panel-heading clearfix">
                     <h4 class="panel-title pull-left"> <i class="livicon" data-name="users" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
-                        Groups List
+                        Lista de Grupos
                     </h4>
                     <div class="pull-right">
                     <a href="{{ route('create/group') }}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span> @lang('button.create')</a>
