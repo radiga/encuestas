@@ -28,6 +28,11 @@ Route::filter('Sentry', function()
 Route::get('/', 'BegarController@showHome');
 
 
+# Rutas aplicacion encuestas.
+
+Route::get('/empresas',  'EmpresasController@Index');
+
+
 Route::group(array('prefix' => 'admin'), function () {
 
 	# Error pages should be shown without requiring login
@@ -106,7 +111,8 @@ Route::group(array('prefix' => 'admin'), function () {
 	# Remaining pages will be called from below controller method
 	# in real world scenario, you may be required to define all routes manually
 	Route::get('{name?}', 'BegarController@showView');
-	
+
+
 	
 
 }); 

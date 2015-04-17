@@ -199,7 +199,7 @@
                                 <!-- ******************* Menu de la aplicación ENCUESTAS  *****************-->
                             <li {!! (Request::is('admin/maestros') ? 'class="active"' : '') !!}>
                             <a href="#">
-                                <i class="livicon" data-name="users" data-size="18" data-c="#418BCA" data-hc="#418BCA" data-loop="true"></i>
+                                <i class="livicon" data-name="list-ul" data-size="18" data-c="#418BCA" data-hc="#418BCA" data-loop="true"></i>
                                 <span class="title">Maestros</span>
                                 <span class="fa arrow"></span>
                             </a>
