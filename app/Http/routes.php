@@ -28,9 +28,25 @@ Route::filter('Sentry', function()
 Route::get('/', 'BegarController@showHome');
 
 
-# Rutas aplicacion encuestas.
+# ******* Rutas aplicacion encuestas ********
 
-Route::get('/empresas',  'EmpresasController@Index');
+  # Geatión Empresas
+  Route::group(array('prefix' => 'empresas','before' => 'Sentry'), function () {
+    Route::get('/', array('as' => 'empresas', 'uses' => 'EmpresasController@Index'));
+    Route::get('create', array('as' => 'create/empresa', 'uses' => 'EmpresasController@getCreate'));
+    Route::post('create', 'EmpresasController@postCreate');
+    Route::get('{EmpresaId}/edit', array('as' => 'empresas.update', 'uses' => 'EmpresasController@getEdit'));
+    Route::post('{EmpresaId}/edit', 'EmpresasController@postEdit');
+    Route::get('{EmpresaId}/delete', array('as' => 'delete/empresa', 'uses' => 'EmpresasController@getDelete'));
+    Route::get('{EmpresaId}/confirm-delete', array('as' => 'confirm-delete/empresa', 'uses' => 'EmpresasController@getModalDelete'));
+    Route::get('{EmpresaId}/restore', array('as' => 'restore/empresa', 'uses' => 'EmpresasController@getRestore'));
+  });
+
+
+
+#
+
+
 
 
 Route::group(array('prefix' => 'admin'), function () {
