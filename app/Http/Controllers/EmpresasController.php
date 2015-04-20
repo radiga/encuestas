@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+
 use Validator;
 use Input;
 use Redirect;
@@ -26,17 +27,8 @@ class EmpresasController extends BegarController {
     public function getEdit($id = null)
     {
 
-     //   try {
-            // Get the group information
-            //$empresa = Empresas::findGroupById($id);
-            $empresa = Empresas::find($id);
+        $empresa = Empresas::find($id);
 
-    //    } catch (GroupNotFoundException $e) {
-            // Redirect to the groups management page
-   //            return Redirect::route('empresas')->with('error', Lang::get('empresas/message.group_not_found', compact('id')));
-    //      }
-
-        // Show the page
         return View('encuestas/empresas/edit', compact('empresa'));
     }
 
@@ -45,45 +37,33 @@ class EmpresasController extends BegarController {
     public function postEdit($id = null)
     {
 
-        /*try {
-            // Get the group information
-            $group = Sentry::getGroupProvider()->findById($id);
-        } catch (GroupNotFoundException $e) {
-            // Redirect to the groups management page
-            return Rediret::route('groups')->with('error', Lang::get('groups/message.group_not_found', compact('id')));
-        }*/
 
-        $empresa = Empresas::find($id);
-
-        // Declare the rules for the form validation
         $rules = array(
-            'nombre' => 'required',
+            'nombre' => 'required'
         );
 
-        // Create a new validator instance from our validation rules
         $validator = Validator::make(Input::all(), $rules);
 
-        // If validation fails, we'll exit the operation now.
+        // process the login
         if ($validator->fails()) {
-            // Ooops.. something went wrong
-            return Redirect::back()->withInput()->withErrors($validator);
-        }
-
-
-            // Update the group data
+            return Redirect::to('/empresas/' . $id . '/edit')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+            // store
+            $empresa = Empresas::find($id);
             $empresa->nombre = Input::get('nombre');
 
-            // Was the group updated?
             if ($empresa->save()) {
                 // Redirect to the group page
                 return Redirect::route('empresas')->with('success', Lang::get('empresas/message.success.update'));
             } else {
                 // Redirect to the group page
-                return Redirect::route('update/empresa', $id)->with('error', Lang::get('groups/message.error.update'));
+                return Redirect::route('update/empresa', $id)->with('error', Lang::get('empresas/message.error.update'));
             }
 
-
-     }
+        }
+    }
 
 
 

@@ -31,7 +31,7 @@ Route::get('/', 'BegarController@showHome');
 # ******* Rutas aplicacion encuestas ********
 
   # Geatión Empresas
-  Route::group(array('prefix' => 'empresas','before' => 'Sentry'), function () {
+  Route::group(array('prefix' => 'empresas'), function () {
     Route::get('/', array('as' => 'empresas', 'uses' => 'EmpresasController@Index'));
     Route::get('create', array('as' => 'create/empresa', 'uses' => 'EmpresasController@getCreate'));
     Route::post('create', 'EmpresasController@postCreate');

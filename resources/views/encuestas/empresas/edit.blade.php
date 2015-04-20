@@ -44,11 +44,11 @@ Editar Empresa
                                 Nombre de la empresa
                             </label>
                             <div class="col-sm-5">
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Group Name" value="{{{ Input::old('nombre', $empresa->
+                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre Empresa" value="{{{ Input::old('nombre', $empresa->
                                 nombre) }}}">
                             </div>
                             <div class="col-sm-4">
-                                {!! $errors->first('name', '<span class="help-block">:message</span>') !!}
+                                {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
                         <div class="form-group">
