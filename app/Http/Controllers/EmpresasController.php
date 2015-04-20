@@ -10,34 +10,24 @@ use App\Empresas;
 
 class EmpresasController extends BegarController {
 
-  /**
-   * Display a listing of the resource.
-   *
-   * @return Response
-   */
+
   public function Index()
   {
-      // Grab all the users
+
       $empresas = Empresas::All();
 
-      // Show the page
       return View('encuestas.empresas.index', compact('empresas'));
   }
 
     public function getEdit($id = null)
     {
-
-        $empresa = Empresas::find($id);
-
+       $empresa = Empresas::find($id);
         return View('encuestas/empresas/edit', compact('empresa'));
     }
 
 
-
     public function postEdit($id = null)
     {
-
-
         $rules = array(
             'nombre' => 'required'
         );
@@ -67,10 +57,42 @@ class EmpresasController extends BegarController {
 
 
 
-  public function create()
-  {
-    
-  }
+    public function getCreate()
+    {
+        // Show the page
+        return View('encuestas/empresas/create');
+    }
+
+    public function postCreate()
+    {
+
+        // declaramos las reglas de validación
+        $rules = array(
+            'nombre' => 'required',
+        );
+
+
+        // Validamos que se ha metido el nombre
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::back()->withInput()->withErrors($validator);
+        }
+
+
+            $empresa = new Empresas;
+            $empresa->nombre = Input::get('nombre');
+            $empresa->save();
+
+
+            if ($empresa->save()) {
+                // Redirect to the new group page
+                return Redirect::route('empresas')->with('success', Lang::get('empresas/message.success.create'));
+            }
+
+
+
+      }
 
   /**
    * Store a newly created resource in storage.
