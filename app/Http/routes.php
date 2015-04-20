@@ -28,6 +28,27 @@ Route::filter('Sentry', function()
 Route::get('/', 'BegarController@showHome');
 
 
+# ******* Rutas aplicacion encuestas ********
+
+  # Geatión Empresas
+  Route::group(array('prefix' => 'empresas'), function () {
+    Route::get('/', array('as' => 'empresas', 'uses' => 'EmpresasController@Index'));
+    Route::get('create', array('as' => 'create/empresa', 'uses' => 'EmpresasController@getCreate'));
+    Route::post('create', 'EmpresasController@postCreate');
+    Route::get('{EmpresaId}/edit', array('as' => 'empresas.update', 'uses' => 'EmpresasController@getEdit'));
+    Route::post('{EmpresaId}/edit', 'EmpresasController@postEdit');
+    Route::get('{EmpresaId}/delete', array('as' => 'delete/empresa', 'uses' => 'EmpresasController@getDelete'));
+    Route::get('{EmpresaId}/confirm-delete', array('as' => 'confirm-delete/empresa', 'uses' => 'EmpresasController@getModalDelete'));
+    Route::get('{EmpresaId}/restore', array('as' => 'restore/empresa', 'uses' => 'EmpresasController@getRestore'));
+  });
+
+
+
+#
+
+
+
+
 Route::group(array('prefix' => 'admin'), function () {
 
 	# Error pages should be shown without requiring login
@@ -106,7 +127,8 @@ Route::group(array('prefix' => 'admin'), function () {
 	# Remaining pages will be called from below controller method
 	# in real world scenario, you may be required to define all routes manually
 	Route::get('{name?}', 'BegarController@showView');
-	
+
+
 	
 
 }); 

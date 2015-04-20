@@ -196,6 +196,38 @@
                             </ul>
                         </li>
                         @endif
+                                <!-- ******************* Menu de la aplicación ENCUESTAS  *****************-->
+                            <li {!! (Request::is('admin/maestros') ? 'class="active"' : '') !!}>
+                            <a href="#">
+                                <i class="livicon" data-name="list-ul" data-size="18" data-c="#418BCA" data-hc="#418BCA" data-loop="true"></i>
+                                <span class="title">Maestros</span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            @if (Sentry::getUser()->hasAccess('admin'))
+                                <ul class="sub-menu">
+                                    <li {!! (Request::is('encuestas') ? 'class="active" id="active"' : '') !!}>
+                                    <a href="{{ URL::to('empresas') }}">
+                                        <i class="fa fa-angle-double-right"></i>
+                                        Empresas
+                                    </a>
+                                    </li>
+                                    <li {!! (Request::is('localizaciones') ? 'class="active" id="active"' : '') !!}>
+                                    <a href="{{ URL::to('localizaciones') }}">
+                                        <i class="fa fa-angle-double-right"></i>
+                                        Localizaciones
+                                    </a>
+                                    </li>
+                                    @endif
+                                    <li {!! (Request::is('encuestas') ? 'class="active" id="active"' : '') !!}>
+                                    <a href="{{ URL::to('encuestas') }}">
+                                        <i class="fa fa-angle-double-right"></i>
+                                        Encuestas
+                                    </a>
+                                    </li>
+                                </ul>
+                                </li>
+
+
 
                     </ul>
                     <!-- END SIDEBAR MENU -->
