@@ -1,6 +1,9 @@
 <?php namespace App\Http\Controllers;
 
-class EncuestasController extends Controller {
+//use App\Encuestas;
+
+
+class EncuestasController extends BegarController {
 
   /**
    * Display a listing of the resource.

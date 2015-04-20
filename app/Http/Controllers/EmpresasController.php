@@ -1,10 +1,11 @@
 <?php namespace App\Http\Controllers;
-use App\Empresas;
+
 use Validator;
 use Input;
 use Redirect;
 use Lang;
 use URL;
+use App\Empresas;
 
 class EmpresasController extends BegarController {
 

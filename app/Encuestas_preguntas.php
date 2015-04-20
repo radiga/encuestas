@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Encuestas_preguntas extends Model {

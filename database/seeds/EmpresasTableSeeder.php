@@ -1,5 +1,7 @@
 <?php
 
+//namespace App;
+
 class EmpresasTableSeeder extends DatabaseSeeder {
 
 	public function run()
@@ -7,12 +9,12 @@ class EmpresasTableSeeder extends DatabaseSeeder {
 		//DB::table('enc_empresas')->delete();
 
 		// Generar_Empresa_Aralia
-		Empresas::create(array(
+		App\Empresas::create(array(
 				'nombre' => 'Aralia Servicios Socio-Sanitarios'
 			));
 
 		// Generar Empresa UTE CD Fuencarral
-		Empresas::create(array(
+		App\Empresas::create(array(
 				'nombre' => 'Ute CD Fuencarral'
 			));
 	}

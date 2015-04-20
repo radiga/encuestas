@@ -1,5 +1,8 @@
 <?php
 
+//namespace App;
+
+
 class Encuestas_preguntasTableSeeder extends DatabaseSeeder {
 
 	public function run()
@@ -7,7 +10,7 @@ class Encuestas_preguntasTableSeeder extends DatabaseSeeder {
 		//DB::table('enc_encuestas_preguntas')->delete();
 
 		// Pregunta_01
-		 Encuestas_preguntas::create(array(
+		 App\Encuestas_preguntas::create(array(
 				'id_seccion' => 1,
 				'id_tipo' => 3,
 				'titulo' => 'Nombre ( Opcional ):',
@@ -17,7 +20,7 @@ class Encuestas_preguntasTableSeeder extends DatabaseSeeder {
 			));
 
 		// Pregunta_02
-         Encuestas_preguntas::create(array(
+         App\Encuestas_preguntas::create(array(
 				'id_seccion' => 1,
 				'id_tipo' => 1,
 				'titulo' => 'Género',
@@ -27,7 +30,7 @@ class Encuestas_preguntasTableSeeder extends DatabaseSeeder {
 			));
 
 		// Pregunta_03
-         Encuestas_preguntas::create(array(
+         App\Encuestas_preguntas::create(array(
 				'id_seccion' => 1,
 				'id_tipo' => 1,
 				'titulo' => 'Habitación',
@@ -36,7 +39,7 @@ class Encuestas_preguntasTableSeeder extends DatabaseSeeder {
 			));
 
 		// Pregunta_04
-         Encuestas_preguntas::create(array(
+         App\Encuestas_preguntas::create(array(
 				'id_seccion' => 1,
 				'id_tipo' => 1,
 				'titulo' => 'Antiguedad',
@@ -45,7 +48,7 @@ class Encuestas_preguntasTableSeeder extends DatabaseSeeder {
 			));
 
 		// Pregunta_05
-         Encuestas_preguntas::create(array(
+         App\Encuestas_preguntas::create(array(
 				'id_seccion' => 1,
 				'id_tipo' => 1,
 				'titulo' => 'Grado de Satisfacción',

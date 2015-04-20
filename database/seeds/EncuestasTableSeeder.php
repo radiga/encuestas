@@ -1,5 +1,8 @@
 <?php
 
+//namespace App;
+
+
 class EncuestasTableSeeder extends DatabaseSeeder {
 
 	public function run()
@@ -7,7 +10,7 @@ class EncuestasTableSeeder extends DatabaseSeeder {
 		//DB::table('enc_encuestas')->delete();
 
 		// Encuesta_1
-		Encuestas::create(array(
+		App\Encuestas::create(array(
 				'id_empresa' => 1,
 				'titulo' => 'Encuesta de Usuarios de Centros Residenciales',
 				'descripcion' => 'Nombre ( Opcional )',
