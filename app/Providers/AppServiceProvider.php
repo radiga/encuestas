@@ -12,6 +12,8 @@ class AppServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		//
+
+     //   view()->composer('admin/layouts/default', 'App\Http\Composers\MasterComposer');
 	}
 
 	/**

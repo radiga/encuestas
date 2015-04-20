@@ -11,6 +11,9 @@ use App\Empresas;
 class EmpresasController extends BegarController {
 
 
+//  $empresa_options = Empresas::lists('nombre', 'id');
+
+
   public function Index()
   {
 
@@ -129,6 +132,12 @@ class EmpresasController extends BegarController {
         }
     }
 
+    public function cambio()
+    {
+
+        $empresas = Empresas::All();
+        return View('encuestas.empresas.cambio', compact('empresas'));
+    }
 
 
 

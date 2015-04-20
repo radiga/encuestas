@@ -28,6 +28,10 @@ Route::filter('Sentry', function()
 Route::get('/', 'BegarController@showHome');
 
 
+Route::get('/encuestas/empresa/cambio', 'EmpresasController@cambio');
+
+
+
 # ******* Rutas aplicacion encuestas ********
 
   # Geatión Empresas

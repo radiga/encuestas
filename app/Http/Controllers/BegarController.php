@@ -1,4 +1,5 @@
 <?php namespace App\Http\Controllers;
+use App\Empresas;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Redirect;
 use Sentry;
@@ -7,6 +8,7 @@ use Cartalyst\Sentry\Users\PasswordRequiredException;
 use Cartalyst\Sentry\Users\UserExistsException;
 use Cartalyst\Sentry\Users\UserNotFoundException;
 use View;
+
 
 class BegarController extends Controller {
 
@@ -58,8 +60,11 @@ class BegarController extends Controller {
 
     public function showHome()
     {
+
+        $empresas = Empresas::lists('nombre', 'id');
+
     	if(Sentry::check())
-			return View('admin/index');
+			return View('admin/index', compact('empresas'));
 		else
 			return Redirect::to('admin/signin')->with('error', 'You must be logged in!');
     }

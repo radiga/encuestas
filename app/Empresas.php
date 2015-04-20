@@ -29,4 +29,7 @@ class Empresas extends Model {
         return $this->hasMany('encuestas\Plantillas_preguntas', 'id_empresa');
     }
 
+
+
+
 }
