@@ -56,7 +56,6 @@ class EmpresasController extends BegarController {
     }
 
 
-
     public function getCreate()
     {
         // Show the page
@@ -94,59 +93,45 @@ class EmpresasController extends BegarController {
 
       }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @return Response
-   */
-  public function store()
-  {
-    
-  }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function show($id)
-  {
-    
-  }
+    public function getModalDelete($id = null)
+    {
+        $model = 'empresas';
+        $confirm_route = $error = null;
+        try {
+            // Get group information
+            $empresa =  Empresas::find($id);
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
-  {
-    
-  }
+            $confirm_route =  route('delete/empresa',['id'=>$empresa->id]);
+            return View('admin/layouts/modal_confirmation', compact('error', 'model', 'confirm_route'));
+        } catch (Exception $e)  {
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function update($id)
-  {
-    
-  }
+            $error = Lang::get('empresas/message.empresa_not_found', compact('id'));
+            return View('admin/layouts/modal_confirmation', compact('error', 'model', 'confirm_route'));
+        }
+    }
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy($id)
-  {
-    
-  }
+
+    public function getDelete($id = null)
+    {
+        try {
+            // Get group information
+            $empresa = Empresas::find($id);
+
+            // Delete the group
+            $empresa->delete();
+
+            // Redirect to the group management page
+            return Redirect::route('empresas')->with('success', Lang::get('empresas/message.success.delete'));
+        } catch (Exception $e) {
+            // Redirect to the group management page
+            return Redirect::route('empresas')->with('error', Lang::get('empresas/message.empresa_not_found', compact('id')));
+        }
+    }
+
+
+
+
   
 }
 
