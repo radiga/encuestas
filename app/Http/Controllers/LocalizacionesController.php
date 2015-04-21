@@ -143,26 +143,7 @@ class localizacionesController extends BegarController {
         }
     }
 
-    public function cambiolocalizacion()
-    {
 
-        $localizaciones = localizaciones::All();
-        return View('encuestas.localizaciones.cambio', compact('localizaciones'));
-    }
-
-
-    public function seleccionarlocalizacion($id_localizacion = null)
-    {
-        echo  "hola" . $id_localizacion;
-
-        //Config::set('localizacion_seleccionada', $localizacionId);
-
-        Session::put('localizacion_id', $id_localizacion);
-
-        //return View('encuestas.localizaciones.cambio');
-
-
-    }
 
 
 

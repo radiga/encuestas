@@ -65,6 +65,17 @@ Route::group(array('prefix' => 'localizaciones'), function () {
     Route::get('{localizacionId}/restore', array('as' => 'restore/localizacion', 'uses' => 'LocalizacionesController@getRestore'));
 });
 
+# Geatión encuestas
+Route::group(array('prefix' => 'encuestas'), function () {
+    Route::get('/', array('as' => 'encuestas', 'uses' => 'EncuestasController@Index'));
+    Route::get('create', array('as' => 'create/encuesta', 'uses' => 'EncuestasController@getCreate'));
+    Route::post('create', 'EncuestasController@postCreate');
+    Route::get('{localizacionId}/edit', array('as' => 'encuestas.update', 'uses' => 'EncuestasController@getEdit'));
+    Route::post('{localizacionId}/edit', 'EncuestasController@postEdit');
+    Route::get('{localizacionId}/delete', array('as' => 'delete/encuesta', 'uses' => 'EncuestasController@getDelete'));
+    Route::get('{localizacionId}/confirm-delete', array('as' => 'confirm-delete/encuesta', 'uses' => 'EncuestasController@getModalDelete'));
+    Route::get('{localizacionId}/restore', array('as' => 'restore/encuesta', 'uses' => 'EncuestasController@getRestore'));
+});
 
 
 Route::group(array('prefix' => 'admin'), function () {
