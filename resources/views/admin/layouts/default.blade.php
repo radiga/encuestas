@@ -35,6 +35,11 @@
             <img src="{{ asset('assets/img/logo.png') }}" alt="logo">
         </a>
 
+        <div>
+
+         {{ Session::get('empresa_id')}}
+
+        </div>
 
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->

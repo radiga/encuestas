@@ -28,9 +28,30 @@ Route::filter('Sentry', function()
 Route::get('/', 'BegarController@showHome');
 
 
-Route::get('/encuestas/empresa/cambio', 'EmpresasController@cambio');
+
+Route::get('/encuestas/empresa/cambio',  'EmpresasController@cambioempresa');
+
+Route::post('ncuestas/empresa/cambio',  function($id_empresa)
+{
+    return 'Empresa activa  '.$id_empresa;
+});
 
 
+/*Route::get('user/{id}', function($id)
+{
+    return 'User '.$id;
+});
+*/
+
+
+
+
+/*Route::post('/encuestas/empresa/cambio}', function()
+{
+    echo $id_empresa;
+
+});
+*/
 
 # ******* Rutas aplicacion encuestas ********
 
@@ -45,10 +66,6 @@ Route::get('/encuestas/empresa/cambio', 'EmpresasController@cambio');
     Route::get('{EmpresaId}/confirm-delete', array('as' => 'confirm-delete/empresa', 'uses' => 'EmpresasController@getModalDelete'));
     Route::get('{EmpresaId}/restore', array('as' => 'restore/empresa', 'uses' => 'EmpresasController@getRestore'));
   });
-
-
-
-#
 
 
 
@@ -123,9 +140,7 @@ Route::group(array('prefix' => 'admin'), function () {
         Route::get('{groupId}/delete', array('as' => 'delete/group', 'uses' => 'GroupsController@getDelete'));
         Route::get('{groupId}/confirm-delete', array('as' => 'confirm-delete/group', 'uses' => 'GroupsController@getModalDelete'));
         Route::get('{groupId}/restore', array('as' => 'restore/group', 'uses' => 'GroupsController@getRestore'));
-		Route::get('any_user', 'UsersController@getUserAccess');
-		Route::get('admin_only', 'UsersController@getAdminOnlyAccess');
-    });	
+    });
 
     Route::post('crop_demo','BegarController@crop_demo');
 	# Remaining pages will be called from below controller method

@@ -32,19 +32,22 @@
                 <section class="content">
                 <div class="panel-body">
 
-
-                    <label for="select-1">Seleccione Empresa</label>
-                    <select class="form-control" id="select-1">
-
-                        @foreach ($empresas as $empresa)
-
-                            <option value="{{{ $empresa->id }}}">{{{ $empresa->nombre }}}</option>
-
-                        @endforeach
+                        <form method="post" >
 
 
-                    </select>
+                        <select name="id_empresa">
+                             @foreach ($empresas as $empresa)
+                                <option value="{{{ $empresa->id }}}">{{{ $empresa->nombre }}}</option>
+                            @endforeach
+                        </select>
 
+                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+
+                            <input type="submit" value="Cambiar">
+
+
+
+                    </form>
 
 
                 </div>

@@ -8,6 +8,8 @@ use Lang;
 use URL;
 use App\Empresas;
 
+use Illuminate\Support\Facades\Session;
+
 class EmpresasController extends BegarController {
 
 
@@ -132,11 +134,25 @@ class EmpresasController extends BegarController {
         }
     }
 
-    public function cambio()
+    public function cambioempresa()
     {
 
         $empresas = Empresas::All();
         return View('encuestas.empresas.cambio', compact('empresas'));
+    }
+
+
+    public function seleccionarempresa($id_empresa = null)
+    {
+        echo  "hola" . $id_empresa;
+
+        //Config::set('empresa_seleccionada', $EmpresaId);
+
+        Session::put('empresa_id', $id_empresa);
+
+        //return View('encuestas.empresas.cambio');
+
+
     }
 
 
