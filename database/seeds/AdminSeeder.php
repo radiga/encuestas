@@ -1,7 +1,5 @@
 <?php
 
-use Cartalyst\Sentry\Facades\CI\Sentry;
-use Illuminate\Support\Facades\DB;
 
 class AdminSeeder extends DatabaseSeeder {
 
