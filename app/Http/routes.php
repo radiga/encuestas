@@ -31,27 +31,13 @@ Route::get('/', 'BegarController@showHome');
 
 Route::get('/encuestas/empresa/cambio',  'EmpresasController@cambioempresa');
 
-Route::post('ncuestas/empresa/cambio',  function($id_empresa)
+
+Route::post('/encuestas/empresa/cambio',  function()
 {
-    return 'Empresa activa  '.$id_empresa;
-});
+    return 'Empresa activa  ';
+}
+);
 
-
-/*Route::get('user/{id}', function($id)
-{
-    return 'User '.$id;
-});
-*/
-
-
-
-
-/*Route::post('/encuestas/empresa/cambio}', function()
-{
-    echo $id_empresa;
-
-});
-*/
 
 # ******* Rutas aplicacion encuestas ********
 
@@ -67,6 +53,17 @@ Route::post('ncuestas/empresa/cambio',  function($id_empresa)
     Route::get('{EmpresaId}/restore', array('as' => 'restore/empresa', 'uses' => 'EmpresasController@getRestore'));
   });
 
+# Geatión Localizaciones
+Route::group(array('prefix' => 'localizaciones'), function () {
+    Route::get('/', array('as' => 'localizaciones', 'uses' => 'LocalizacionesController@Index'));
+    Route::get('create', array('as' => 'create/localizacion', 'uses' => 'LocalizacionesController@getCreate'));
+    Route::post('create', 'localizacionesController@postCreate');
+    Route::get('{localizacionId}/edit', array('as' => 'localizaciones.update', 'uses' => 'LocalizacionesController@getEdit'));
+    Route::post('{localizacionId}/edit', 'localizacionesController@postEdit');
+    Route::get('{localizacionId}/delete', array('as' => 'delete/localizacion', 'uses' => 'LocalizacionesController@getDelete'));
+    Route::get('{localizacionId}/confirm-delete', array('as' => 'confirm-delete/localizacion', 'uses' => 'LocalizacionesController@getModalDelete'));
+    Route::get('{localizacionId}/restore', array('as' => 'restore/localizacion', 'uses' => 'LocalizacionesController@getRestore'));
+});
 
 
 

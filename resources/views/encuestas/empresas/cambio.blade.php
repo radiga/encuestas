@@ -32,20 +32,30 @@
                 <section class="content">
                 <div class="panel-body">
 
-                        <form method="post" >
+                    <form class="form-wizard form-horizontal" action="" method="POST" id="wizard" enctype="multipart/form-data">
 
+                     <!-- CSRF Token -->
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-                        <select name="id_empresa">
-                             @foreach ($empresas as $empresa)
+                    <div class="col-sm-10">
+                        <select class="form-control " title="Seleccione una empresa" name="empresas[]" id="id_empresa" required>
+                            <option value="">Seleccione empresa</option>
+                            @foreach ($empresas as $empresa)
                                 <option value="{{{ $empresa->id }}}">{{{ $empresa->nombre }}}</option>
                             @endforeach
                         </select>
+                        <button type="submit" class="btn btn-success">
+                            Cambiar Empresa
+                        </button>
 
-                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-
-                            <input type="submit" value="Cambiar">
+                    </div>
 
 
+
+
+
+
+<!--                        <input type="submit" name="Cambiar"  value ="Cambiar" /> -->
 
                     </form>
 

@@ -9,6 +9,8 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
+      // $this->call('AdminSeeder');
+
 		$this->call('EmpresasTableSeeder');
 		$this->command->info('Empresas table seeded!');
 

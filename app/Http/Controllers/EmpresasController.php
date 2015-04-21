@@ -26,8 +26,8 @@ class EmpresasController extends BegarController {
 
     public function getEdit($id = null)
     {
-       $empresa = Empresas::find($id);
-        return View('encuestas/empresas/edit', compact('empresa'));
+       $empresas = Empresas::find($id);
+        return View('encuestas/empresas/edit', compact('empresas'));
     }
 
 
