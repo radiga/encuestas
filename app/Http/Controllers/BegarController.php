@@ -2,6 +2,7 @@
 use App\Empresas;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 use Sentry;
 use Session;
 use Cartalyst\Sentry\Users\LoginRequiredException;
@@ -62,7 +63,13 @@ class BegarController extends Controller {
     public function showHome()
     {
 
+        //Colocamos en nuestras variables de sesion la empresa 1
+
         Session::put('id_empresa', 1);
+
+        $nombre_empresa = DB::table('enc_empresas')->where('id','=', 1)->pluck('nombre');
+
+         Session::put('nombre_empresa',$nombre_empresa);
 
 
         $empresas = Empresas::lists('nombre', 'id');

@@ -32,9 +32,9 @@ Route::get('/', 'BegarController@showHome');
 Route::get('/encuestas/empresa/cambio',  'EmpresasController@cambioempresa');
 
 
-Route::post('/encuestas/empresa/cambio',  function()
+Route::post('/encuestas/empresa/cambio',  function($id_empresa)
 {
-    return 'Empresa activa  ';
+    echo 'Empresa activa  '. $id_empresa;
 }
 );
 

@@ -31,15 +31,20 @@
 
 <body class="skin-josh">
     <header class="header">
+
+
         <a href="{{ URL::to('admin/index') }}" class="logo">
             <img src="{{ asset('assets/img/logo.png') }}" alt="logo">
         </a>
+        </br>
 
-        <div>
+            <?php
+            $empresa = Session::get('nombre_empresa');
+            echo ' Empresa : '. $empresa;
+            ?>
 
-         {{ Session::get('empresa_id')}}
 
-        </div>
+
 
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
@@ -52,7 +57,11 @@
             <div class="navbar-right">
                 <ul class="nav navbar-nav">
 
+
+
+
                     <li class="dropdown user user-menu">
+
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img data-src="holder.js/35x35/#fff:#000" width="35" class="img-circle img-responsive pull-left" height="35" alt="riot">

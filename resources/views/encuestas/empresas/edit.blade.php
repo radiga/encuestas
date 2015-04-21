@@ -44,7 +44,7 @@ Editar Empresa
                                 Nombre de la empresa
                             </label>
                             <div class="col-sm-5">
-                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre Empresa" value="{{{ Input::old('nombre', $empresa->
+                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre Empresa" value="{{{ Input::old('nombre', $empresas->
                                 nombre) }}}">
                             </div>
                             <div class="col-sm-4">
