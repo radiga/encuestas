@@ -52,7 +52,14 @@ class encuestasController extends BegarController {
         } else {
             // store
             $encuestas = encuestas::find($id);
+
             $encuestas->titulo = Input::get('titulo');
+            $encuestas->descripcion = Input::get('descripcion');
+            $encuestas->activa = Input::get('activa');
+            $encuestas->anonima = Input::get('anonima');
+            $encuestas->fecha_inicio = Input::get('fecha_inicio');
+            $encuestas->fecha_fin = Input::get('fecha_fin');
+
 
             if ($encuestas->save()) {
                 // Redirect to the group page
@@ -93,6 +100,14 @@ class encuestasController extends BegarController {
         $encuestas->titulo = Input::get('titulo');
 
         $encuestas->id_empresa = Session::get('id_empresa');
+
+        $encuestas->descripcion = Input::get('descripcion');
+        $encuestas->activa = Input::get('activa');
+        $encuestas->anonima = Input::get('anonima');
+
+        $encuestas->fecha_inicio = Input::get('fecha_inicio');
+        $encuestas->fecha_fin = Input::get('fecha_fin');
+
 
 
         $encuestas->save();

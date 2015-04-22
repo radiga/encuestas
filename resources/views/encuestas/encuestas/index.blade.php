@@ -54,6 +54,7 @@
                             <th>activa</th>
                             <th>fecha inicio</th>
                             <th>fecha final</th>
+                            <th>url</th>
                             <th>Anónima</th>
                             <th>Acciones</th>
                         </tr>
@@ -67,9 +68,10 @@
                                 <td>{{{ $encuesta->activa }}}</td>
                                 <td>{{{ $encuesta->fecha_inicio }}}</td>
                                 <td>{{{ $encuesta->fecha_fin }}}</td>
+                                <td>{{{ $encuesta->url }}}</td>
                                 <td>{{{ $encuesta->anonima }}}</td>
                                 <td>
-                                    <a href="{{ route('encuestas.update', $encuesta->id) }}"><i class="livicon" data-name="edit" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="actualizar encuesta"></i></a>
+                                    <a href="{{ route('encuestas.update', $encuesta->id) }}"><i class="livicon" data-name="edit" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="editar encuesta"></i></a>
 
                                     <a href="{{ route('confirm-delete/encuesta', $encuesta->id) }}" data-toggle="modal" data-target="#delete_confirm"><i class="livicon" data-name="user-remove" data-size="18" data-loop="true" data-c="#f56954" data-hc="#f56954" title="borrar encuesta"></i></a>
 
