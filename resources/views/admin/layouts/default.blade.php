@@ -249,8 +249,8 @@
                                 <span class="title">Maestros</span>
                                 <span class="fa arrow"></span>
                             </a>
-                            @if (Sentry::getUser()->hasAccess('admin'))
-                                <ul class="sub-menu">
+                                 @if (Sentry::getUser()->hasAccess('admin'))
+                                   <ul class="sub-menu">
                                     <li {!! (Request::is('encuestas') ? 'class="active" id="active"' : '') !!}>
                                     <a href="{{ URL::to('empresas') }}">
                                         <i class="fa fa-angle-double-right"></i>
@@ -263,7 +263,15 @@
                                         Localizaciones
                                     </a>
                                     </li>
-                                    @endif
+
+                                       <li {!! (Request::is('tipospreguntas') ? 'class="active" id="active"' : '') !!}>
+                                       <a href="{{ URL::to('tipospreguntas') }}">
+                                           <i class="fa fa-angle-double-right"></i>
+                                           Tipos de Preguntas
+                                       </a>
+                                       </li>
+
+                                       @endif
                                     <li {!! (Request::is('encuestas') ? 'class="active" id="active"' : '') !!}>
                                     <a href="{{ URL::to('encuestas') }}">
                                         <i class="fa fa-angle-double-right"></i>

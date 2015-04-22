@@ -1,7 +1,10 @@
-@extends('admin/layouts/default')
+@extends('admin.layouts.default')
 
 {{-- Page title --}}
-
+@section('title')
+    Editar Tipos de Pregunta
+    @parent
+@stop
 
 {{-- page level styles --}}
 @section('header_styles')
@@ -16,7 +19,7 @@
 {{-- Page content --}}
 @section('content')
     <section class="content-header">
-
+        <h1>Editar Tipos de Pregunta</h1>
         <ol class="breadcrumb">
             <li>
                 <a href="{{ route('dashboard') }}"> <i class="livicon" data-name="home" data-size="16" data-color="#000"></i>
@@ -24,7 +27,7 @@
                 </a>
             </li>
             <li>Users</li>
-            <li class="active">Empresa</li>
+            <li class="active">Añadir nuevos tipos de pregunta</li>
         </ol>
     </section>
     <section class="content">
@@ -33,7 +36,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title"> <i class="livicon" data-name="users" data-size="16" data-c="#fff" data-hc="#fff" data-loop="true"></i>
-
+                            Editando Tipos de Pregunta : {{{ $tipospreguntas->nombre}}}
                         </h3>
                     <span class="pull-right clickable">
                         <i class="glyphicon glyphicon-chevron-up"></i>
@@ -42,7 +45,11 @@
                     <div class="panel-body">
 
                         <!-- errors -->
-
+                        <div class="has-error">
+                            {!! $errors->first('tipo', '<span class="help-block">:message</span>') !!}
+                            {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
+                            {!! $errors->first('estilo', '<span class="help-block">:message</span>') !!}
+                        </div>
 
                         <!--main content-->
                         <div class="row">
@@ -50,33 +57,40 @@
                             <div class="col-md-12">
 
                                 <!-- BEGIN FORM WIZARD WITH VALIDATION -->
-                                <form class="form-wizard form-horizontal" action="{{ route('cambiar/empresa') }}" method="POST" id="wizard" enctype="multipart/form-data">
+                                <form class="form-wizard form-horizontal" action="" method="POST" id="wizard" enctype="multipart/form-data">
                                     <!-- CSRF Token -->
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                                     <!-- first tab -->
-                                    <h1>Cambiar Empresa</h1>
+                                    <h1>Datos Tipos de Pregunta</h1>
 
                                     <section>
 
                                         <div class="form-group">
-                                            <label for="group" class="col-sm-2 control-label">Empresa Activa</label>
+                                            <label for="tipo" class="col-sm-2 control-label">Título *</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control " title="Seleccione Empresa" name="empresa" id="empresa">
-
-
-                                                    <?php
-                                                    $empresa_activa = Session::get('id_empresa');
-                                                        echo $empresa_activa;
-                                                    ?>
-
-                                                    @foreach ($empresas as $empresa)
-                                                        <option value="{{ $empresa->id }}" @if($empresa->id == $empresa_activa ) selected="selected" @endif >{{ $empresa->nombre}}</option>
-                                                    @endforeach
-
-                                                </select>
+                                                <input id="tipo" name="tipo" type="text" placeholder="Título" class="form-control required" value="{{{ Input::old('tipo', $tipospreguntas->tipo) }}}" />
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="nombre" class="col-sm-2 control-label">Nombre *</label>
+                                            <div class="col-sm-10">
+                                                <input id="nombre" name="nombre" type="text" placeholder="Descripción" class="form-control" value="{{{ Input::old('nombre', $tipospreguntas->nombre) }}}" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="estilo" class="col-sm-2 control-label">Estilo * </label>
+                                            <div class="col-sm-10">
+                                                <input id="estilo" name="estilo" placeholder="estilo" type="text" class="form-control" value="{{{ Input::old('estilo', $tipospreguntas->estilo) }}}" />
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <p>(*) Obligatorio</p>
 
                                     </section>
 

@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    Lista de Empresas
+    Tipos de preguntas
     @parent
 @stop
 
@@ -16,15 +16,15 @@
 {{-- Page content --}}
 @section('content')
     <section class="content-header">
-        <h1>Empresas</h1>
+        <h1>Tipos de preguntas</h1>
         <ol class="breadcrumb">
             <li>
                 <a href="{{ route('dashboard') }}"> <i class="livicon" data-name="home" data-size="16" data-color="#000"></i>
                     Inicio
                 </a>
             </li>
-            <li>Empresas</li>
-            <li class="active">Empresas</li>
+            <li>Tipos preguntas</li>
+            <li class="active">tipospreguntas</li>
         </ol>
     </section>
 
@@ -35,10 +35,10 @@
                             <div class="panel panel-primary ">
                                 <div class="panel-heading clearfix">
                                     <h4 class="panel-title pull-left"> <i class="livicon" data-name="users" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
-                                        Lista de Empresas
+                                        Lista de tipospreguntas
                                     </h4>
                                     <div class="pull-right">
-                                        <a href="{{ route('create/empresa') }}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span> @lang('button.create')</a>
+                                        <a href="{{ route('create/tipospregunta') }}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span> @lang('button.create')</a>
                                     </div>
                                 </div>
 
@@ -49,23 +49,27 @@
                         <thead>
                         <tr class="filters">
                             <th>id</th>
-                            <th>nombre empresa</th>
+                            <th>tipo</th>
+                            <th>nombre</th>
+                            <th>estilo</th>
                             <th>Creado el</th>
                             <th>Actualizado el</th>
                             <th>Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($empresas as $empresa)
+                        @foreach ($tipospreguntas as $tipospregunta)
                             <tr>
-                                <td>{{{ $empresa->id }}}</td>
-                                <td>{{{ $empresa->nombre }}}</td>
-                                <td>{{{ $empresa->created_at }}}</td>
-                                <td>{{{ $empresa->updated_at }}}</td>
+                                <td>{{{ $tipospregunta->id }}}</td>
+                                <td>{{{ $tipospregunta->tipo }}}</td>
+                                <td>{{{ $tipospregunta->nombre }}}</td>
+                                <td>{{{ $tipospregunta->estilo }}}</td>
+                                <td>{{{ $tipospregunta->created_at }}}</td>
+                                <td>{{{ $tipospregunta->updated_at }}}</td>
                                 <td>
-                                    <a href="{{ route('empresas.update', $empresa->id) }}"><i class="livicon" data-name="edit" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="actualizar empresa"></i></a>
+                                    <a href="{{ route('tipospreguntas.update', $tipospregunta->id) }}"><i class="livicon" data-name="edit" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="editar tipo de pregunta"></i></a>
 
-                                    <a href="{{ route('confirm-delete/empresa', $empresa->id) }}" data-toggle="modal" data-target="#delete_confirm"><i class="livicon" data-name="user-remove" data-size="18" data-loop="true" data-c="#f56954" data-hc="#f56954" title="borrar empresa"></i></a>
+                                    <a href="{{ route('confirm-delete/tipospregunta', $tipospregunta->id) }}" data-toggle="modal" data-target="#delete_confirm"><i class="livicon" data-name="user-remove" data-size="18" data-loop="true" data-c="#f56954" data-hc="#f56954" title="borrar tipo de pregunta"></i></a>
 
                                 </td>
                             </tr>
