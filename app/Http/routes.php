@@ -67,11 +67,25 @@ Route::group(array('prefix' => 'encuestas'), function () {
     Route::get('/', array('as' => 'encuestas', 'uses' => 'EncuestasController@Index'));
     Route::get('create', array('as' => 'create/encuesta', 'uses' => 'EncuestasController@getCreate'));
     Route::post('create', 'EncuestasController@postCreate');
-    Route::get('{localizacionId}/edit', array('as' => 'encuestas.update', 'uses' => 'EncuestasController@getEdit'));
-    Route::post('{localizacionId}/edit', 'EncuestasController@postEdit');
-    Route::get('{localizacionId}/delete', array('as' => 'delete/encuesta', 'uses' => 'EncuestasController@getDelete'));
-    Route::get('{localizacionId}/confirm-delete', array('as' => 'confirm-delete/encuesta', 'uses' => 'EncuestasController@getModalDelete'));
-    Route::get('{localizacionId}/restore', array('as' => 'restore/encuesta', 'uses' => 'EncuestasController@getRestore'));
+    Route::get('{encuestaId}/edit', array('as' => 'encuestas.update', 'uses' => 'EncuestasController@getEdit'));
+    Route::post('{encuestaId}/edit', 'EncuestasController@postEdit');
+    Route::get('{encuestaId}/delete', array('as' => 'delete/encuesta', 'uses' => 'EncuestasController@getDelete'));
+    Route::get('{encuestaId}/confirm-delete', array('as' => 'confirm-delete/encuesta', 'uses' => 'EncuestasController@getModalDelete'));
+    Route::get('{encuestaId}/restore', array('as' => 'restore/encuesta', 'uses' => 'EncuestasController@getRestore'));
+});
+
+
+
+# Geatión tipos de preguntas
+Route::group(array('prefix' => 'tipospreguntas'), function () {
+    Route::get('/', array('as' => 'tipospreguntas', 'uses' => 'TipospreguntasController@Index'));
+    Route::get('create', array('as' => 'create/tipospregunta', 'uses' => 'TipospreguntasController@getCreate'));
+    Route::post('create', 'TipospreguntasController@postCreate');
+    Route::get('{tipospreguntasId}/edit', array('as' => 'tipospreguntas.update', 'uses' => 'TipospreguntasController@getEdit'));
+    Route::post('{tipospreguntasId}/edit', 'TipospreguntasController@postEdit');
+    Route::get('{tipospreguntasId}/delete', array('as' => 'delete/tipospregunta', 'uses' => 'TipospreguntasController@getDelete'));
+    Route::get('{tipospreguntasId}/confirm-delete', array('as' => 'confirm-delete/tipospregunta', 'uses' => 'TipospreguntasController@getModalDelete'));
+    Route::get('{tipospreguntasId}/restore', array('as' => 'restore/tipospregunta', 'uses' => 'TipospreguntasController@getRestore'));
 });
 
 

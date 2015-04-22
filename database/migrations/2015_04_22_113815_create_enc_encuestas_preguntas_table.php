@@ -9,10 +9,11 @@ class CreateEncEncuestasPreguntasTable extends Migration {
 	{
 		Schema::create('enc_encuestas_preguntas', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('id_padre');
+			$table->integer('id_padre')->default('0');
 			$table->integer('id_seccion')->unsigned();
 			$table->integer('id_tipo')->unsigned();
-			$table->string('titulo', 100);
+			$table->string('codigo', 25)->nullable();
+			$table->string('titulo', 100)->nullable();
 			$table->string('pregunta');
 			$table->string('ayuda')->nullable();
 			$table->boolean('obligatoria')->default(false);

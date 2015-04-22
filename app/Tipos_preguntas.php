@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tipos_preguntas extends Model {
+class tipos_preguntas extends Model {
 
 	protected $table = 'enc_tipos_preguntas';
 	public $timestamps = true;
