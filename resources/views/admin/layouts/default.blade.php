@@ -31,17 +31,23 @@
 
 <body class="skin-josh">
     <header class="header">
+        <div>
 
+                 Empresa Activa:
+             <b>
+            <?php
+            $empresa = Session::get('nombre_empresa');
+            echo $empresa;
+            ?>
+                 
+                </b>
+        </div>
 
         <a href="{{ URL::to('admin/index') }}" class="logo">
             <img src="{{ asset('assets/img/logo.png') }}" alt="logo">
         </a>
-        </br>
 
-            <?php
-            $empresa = Session::get('nombre_empresa');
-            echo ' Empresa : '. $empresa;
-            ?>
+
 
 
 
@@ -52,10 +58,15 @@
                 <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
                     <div class="responsive_nav"></div>
                 </a>
+
+
             </div>
 
             <div class="navbar-right">
                 <ul class="nav navbar-nav">
+
+
+
 
 
 
@@ -65,6 +76,8 @@
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img data-src="holder.js/35x35/#fff:#000" width="35" class="img-circle img-responsive pull-left" height="35" alt="riot">
+
+
                             <div class="riot">
                                 <div>
                                     {{ Sentry::getUser()->first_name }} {{ Sentry::getUser()->last_name }}
@@ -74,6 +87,8 @@
                                 </div>
                             </div>
                         </a>
+
+
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header bg-light-blue">
