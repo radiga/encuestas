@@ -304,6 +304,11 @@ class AuthController extends BegarController
      */
     public function getLogout()
     {
+
+        // vaciamos las dos variables de session al hacer logout
+        Session::forget('id_empresa');
+        Session::forget('nombre_empresa');
+
         // Log the user out
         Sentry::logout();
 

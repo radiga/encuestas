@@ -14,6 +14,7 @@ return array(
         'create' => 'La empresa fue creada correctamente.',
         'update' => 'La empresa fue actualizada correctamente.',
         'delete' => 'La empresa fue borrada correctamente.',
+        'change' => 'La empresa fue cambiada correctamente.',
     ),
 
     'delete' => array(

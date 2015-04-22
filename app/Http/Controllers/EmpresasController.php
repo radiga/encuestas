@@ -7,6 +7,7 @@ use Redirect;
 use Lang;
 use URL;
 use App\Empresas;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Session;
 
@@ -142,15 +143,19 @@ class EmpresasController extends BegarController {
     }
 
 
-    public function seleccionarempresa($id_empresa = null)
+    public function seleccionarempresa()
     {
-        echo  "hola" . $id_empresa;
 
-        //Config::set('empresa_seleccionada', $EmpresaId);
 
-        Session::put('empresa_id', $id_empresa);
+        Session::put('id_empresa', Input::get('empresa'));
 
-        //return View('encuestas.empresas.cambio');
+        $nombre_empresa = DB::table('enc_empresas')->where('id','=', Input::get('empresa'))->pluck('nombre');
+
+        Session::put('nombre_empresa',$nombre_empresa);
+
+
+        $empresas = Empresas::All();
+        return View('encuestas.empresas.cambio', compact('empresas'));
 
 
     }

@@ -1,90 +1,103 @@
-@extends('admin.layouts.default')
+@extends('admin/layouts/default')
 
 {{-- Page title --}}
-@section('title')
-   Seleccione la empresa
-    @parent
-@stop
+
 
 {{-- page level styles --}}
 @section('header_styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/datatables/css/dataTables.bootstrap.css') }}" />
-    <link href="{{ asset('assets/css/pages/tables.css') }}" rel="stylesheet" type="text/css" />
+    <!--page level css -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/wizard/jquery-steps/css/wizard.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/wizard/jquery-steps/css/jquery.steps.css') }}">
+    <link href="{{ asset('assets/vendors/jasny-bootstrap/css/jasny-bootstrap.css') }}" rel="stylesheet" />
+    <!--end of page level css-->
 @stop
 
 
 {{-- Page content --}}
 @section('content')
     <section class="content-header">
-        <h1>Empresas</h1>
+
         <ol class="breadcrumb">
             <li>
                 <a href="{{ route('dashboard') }}"> <i class="livicon" data-name="home" data-size="16" data-color="#000"></i>
                     Inicio
                 </a>
             </li>
-            <li>Empresas</li>
-            <li class="active">Empresas</li>
+            <li>Users</li>
+            <li class="active">Empresa</li>
         </ol>
     </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"> <i class="livicon" data-name="users" data-size="16" data-c="#fff" data-hc="#fff" data-loop="true"></i>
 
-    <!-- Main content -->
-                <section class="content">
-                <div class="panel-body">
-
-                    <form class="form-wizard form-horizontal" action="" method="POST" id="id_empresa" enctype="multipart/form-data">
-
-                     <!-- CSRF Token -->
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
-                    <div class="col-sm-10">
-                        <select class="form-control " title="Seleccione una empresa" name="id_empresa" id="id_empresa" required>
-                            <option value="">Seleccione empresa</option>
-                            @foreach ($empresas as $empresa)
-                                <option value="{{{ $empresa->id }}}">{{{ $empresa->nombre }}}</option>
-                            @endforeach
-                        </select>
-                        <button type="submit" class="btn btn-success">
-                            Cambiar Empresa
-                        </button>
-
+                        </h3>
+                    <span class="pull-right clickable">
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                    </span>
                     </div>
+                    <div class="panel-body">
+
+                        <!-- errors -->
 
 
+                        <!--main content-->
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+                                <!-- BEGIN FORM WIZARD WITH VALIDATION -->
+                                <form class="form-wizard form-horizontal" action="{{ route('cambiar/empresa') }}" method="POST" id="wizard" enctype="multipart/form-data">
+                                    <!-- CSRF Token -->
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
+                                    <!-- first tab -->
+                                    <h1>Cambiar Empresa</h1>
+
+                                    <section>
+
+                                        <div class="form-group">
+                                            <label for="group" class="col-sm-2 control-label">Empresa Activa</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control " title="Seleccione Empresa" name="empresa" id="empresa">
 
 
+                                                    <?php
+                                                    $empresa_activa = Session::get('id_empresa');
+                                                        echo $empresa_activa;
+                                                    ?>
+
+                                                    @foreach ($empresas as $empresa)
+                                                        <option value="{{ $empresa->id }}" @if($empresa->id == $empresa_activa ) selected="selected" @endif >{{ $empresa->nombre}}</option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </section>
 
 
-<!--                        <input type="submit" name="Cambiar"  value ="Cambiar" /> -->
-
-                    </form>
-
-
+                                </form>
+                                <!-- END FORM WIZARD WITH VALIDATION -->
+                            </div>
+                        </div>
+                        <!--main content end-->
+                    </div>
                 </div>
+            </div>
+        </div>
+        <!--row end-->
     </section>
 @stop
 
 {{-- page level scripts --}}
 @section('footer_scripts')
-    <script type="text/javascript" src="{{ asset('assets/vendors/datatables/jquery.dataTables.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/vendors/datatables/dataTables.bootstrap.js') }}"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('#table').DataTable();
-        });
-    </script>
-
-    <div class="modal fade" id="delete_confirm" tabindex="-1" role="dialog" aria-labelledby="user_delete_confirm_title" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content"></div>
-        </div>
-    </div>
-    <script>
-        $(function () {
-            $('body').on('hidden.bs.modal', '.modal', function () {
-                $(this).removeData('bs.modal');
-            });
-        });
-    </script>
+    <script type="text/javascript" src="{{ asset('assets/vendors/wizard/jquery-steps/js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/wizard/jquery-steps/js/jquery.steps.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/add_user.js') }}"></script>
 @stop

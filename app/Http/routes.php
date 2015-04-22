@@ -32,13 +32,6 @@ Route::get('/', 'BegarController@showHome');
 Route::get('/encuestas/empresa/cambio',  'EmpresasController@cambioempresa');
 
 
-Route::post('/encuestas/empresa/cambio',  function($id_empresa)
-{
-    echo 'Empresa activa  '. $id_empresa;
-}
-);
-
-
 # ******* Rutas aplicacion encuestas ********
 
   # Geatión Empresas
@@ -46,6 +39,10 @@ Route::post('/encuestas/empresa/cambio',  function($id_empresa)
     Route::get('/', array('as' => 'empresas', 'uses' => 'EmpresasController@Index'));
     Route::get('create', array('as' => 'create/empresa', 'uses' => 'EmpresasController@getCreate'));
     Route::post('create', 'EmpresasController@postCreate');
+
+
+    Route::post('cambiar',  array('as' => 'cambiar/empresa', 'uses' => 'EmpresasController@seleccionarempresa'));
+
     Route::get('{EmpresaId}/edit', array('as' => 'empresas.update', 'uses' => 'EmpresasController@getEdit'));
     Route::post('{EmpresaId}/edit', 'EmpresasController@postEdit');
     Route::get('{EmpresaId}/delete', array('as' => 'delete/empresa', 'uses' => 'EmpresasController@getDelete'));
