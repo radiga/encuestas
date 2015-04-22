@@ -2,9 +2,12 @@
 
 {{-- Page title --}}
 @section('title')
-Dashboard
+Inicio
 @parent
 @stop
+
+
+
 
 {{-- page level styles --}}
 @section('header_styles')
@@ -15,6 +18,8 @@ Dashboard
 <link rel="stylesheet" href="{{ asset('assets/vendors/animate/animate.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/only_dashboard.css') }}" />
 <!--end of page level css-->
+
+
 @stop
 
 
@@ -22,6 +27,12 @@ Dashboard
 @section('content')
 <section class="content-header">
     <h1>Inicio de la Aplicación</h1>
+
+
+
+
+
+
     <ol class="breadcrumb">
         <li class="active">
             <a href="#"> <i class="livicon" data-name="home" data-size="16" data-color="#333" data-hovercolor="#333"></i>
@@ -29,6 +40,8 @@ Dashboard
             </a>
         </li>
     </ol>
+
+
 </section>
 
 

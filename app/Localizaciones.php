@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Localizaciones extends Model {
+class localizaciones extends Model {
 
 	protected $table = 'enc_localizaciones';
 	public $timestamps = true;

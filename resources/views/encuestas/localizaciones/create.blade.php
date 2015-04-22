@@ -1,25 +1,17 @@
-@extends('admin/layouts/default')
-
-{{-- Web site Title --}}
-@section('title')
-Editar Empresa
-@parent
-@stop
-
-{{-- Content --}}
-@section('content')
+@extends('admin/layouts/default') {{-- Web site Title --}} @section('title') @lang('admin/groups/title.create') :: @parent @stop {{-- Content --}} @section('content')
 <section class="content-header">
     <h1>
-        Editar empresa
+        @lang('groups/title.create')
     </h1>
     <ol class="breadcrumb">
         <li>
-            <a href="{{ route('dashboard') }}"> <i class="livicon" data-name="home" data-size="16" data-color="#000"></i>
-                Inicio
+            <a href="{{ route('dashboard') }}"> <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
             </a>
         </li>
-        <li>Empresas</li>
-        <li class="active">Editar Empresa</li>
+        <li>localizaciones</li>
+        <li class="active">
+            Crear localizacion
+        </li>
     </ol>
 </section>
 
@@ -29,31 +21,34 @@ Editar Empresa
         <div class="col-lg-12">
             <div class="panel panel-primary ">
                 <div class="panel-heading">
-                    <h4 class="panel-title"> <i class="livicon" data-name="wrench" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
-                        Editar Empresa
+                    <h4 class="panel-title"> <i class="livicon" data-name="users-add" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
+                       Crear localizacion
                     </h4>
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="post" action="">
                         <!-- CSRF Token -->
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                        
+
                         <div class="form-group {{ $errors->
                             first('nombre', 'has-error') }}">
                             <label for="title" class="col-sm-2 control-label">
-                                Nombre de la empresa
+                                Nombre de la localizacion
                             </label>
                             <div class="col-sm-5">
-                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre Empresa" value="{{{ Input::old('nombre', $empresas->
-                                nombre) }}}">
+                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre localizacion" value="{{{ Input::old('nombre') }}}">
+
+                                <input type="text" id="id_empresa" name="id_empresa" class="form-control" placeholder="Id Empresa" value="{{{ Session::get('id_empresa') }}}">
+
                             </div>
                             <div class="col-sm-4">
-                                {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
+                                {!! $errors->first('nombre', '<span class="help-block">:message</span> ') !!}
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-4">
-                                <a class="btn btn-danger" href="{{ route('empresas') }}">
+                                <a class="btn btn-danger" href="{{ route('localizaciones') }}">
                                     @lang('button.cancel')
                                 </a>
                                 <button type="submit" class="btn btn-success">
@@ -68,5 +63,4 @@ Editar Empresa
     </div>
     <!-- row-->
 </section>
-
 @stop

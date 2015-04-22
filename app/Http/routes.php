@@ -28,6 +28,10 @@ Route::filter('Sentry', function()
 Route::get('/', 'BegarController@showHome');
 
 
+
+Route::get('/encuestas/empresa/cambio',  'EmpresasController@cambioempresa');
+
+
 # ******* Rutas aplicacion encuestas ********
 
   # Geatión Empresas
@@ -35,6 +39,10 @@ Route::get('/', 'BegarController@showHome');
     Route::get('/', array('as' => 'empresas', 'uses' => 'EmpresasController@Index'));
     Route::get('create', array('as' => 'create/empresa', 'uses' => 'EmpresasController@getCreate'));
     Route::post('create', 'EmpresasController@postCreate');
+
+
+    Route::post('cambiar',  array('as' => 'cambiar/empresa', 'uses' => 'EmpresasController@seleccionarempresa'));
+
     Route::get('{EmpresaId}/edit', array('as' => 'empresas.update', 'uses' => 'EmpresasController@getEdit'));
     Route::post('{EmpresaId}/edit', 'EmpresasController@postEdit');
     Route::get('{EmpresaId}/delete', array('as' => 'delete/empresa', 'uses' => 'EmpresasController@getDelete'));
@@ -42,11 +50,29 @@ Route::get('/', 'BegarController@showHome');
     Route::get('{EmpresaId}/restore', array('as' => 'restore/empresa', 'uses' => 'EmpresasController@getRestore'));
   });
 
+# Geatión Localizaciones
+Route::group(array('prefix' => 'localizaciones'), function () {
+    Route::get('/', array('as' => 'localizaciones', 'uses' => 'LocalizacionesController@Index'));
+    Route::get('create', array('as' => 'create/localizacion', 'uses' => 'LocalizacionesController@getCreate'));
+    Route::post('create', 'localizacionesController@postCreate');
+    Route::get('{localizacionId}/edit', array('as' => 'localizaciones.update', 'uses' => 'LocalizacionesController@getEdit'));
+    Route::post('{localizacionId}/edit', 'localizacionesController@postEdit');
+    Route::get('{localizacionId}/delete', array('as' => 'delete/localizacion', 'uses' => 'LocalizacionesController@getDelete'));
+    Route::get('{localizacionId}/confirm-delete', array('as' => 'confirm-delete/localizacion', 'uses' => 'LocalizacionesController@getModalDelete'));
+    Route::get('{localizacionId}/restore', array('as' => 'restore/localizacion', 'uses' => 'LocalizacionesController@getRestore'));
+});
 
-
-#
-
-
+# Geatión encuestas
+Route::group(array('prefix' => 'encuestas'), function () {
+    Route::get('/', array('as' => 'encuestas', 'uses' => 'EncuestasController@Index'));
+    Route::get('create', array('as' => 'create/encuesta', 'uses' => 'EncuestasController@getCreate'));
+    Route::post('create', 'EncuestasController@postCreate');
+    Route::get('{localizacionId}/edit', array('as' => 'encuestas.update', 'uses' => 'EncuestasController@getEdit'));
+    Route::post('{localizacionId}/edit', 'EncuestasController@postEdit');
+    Route::get('{localizacionId}/delete', array('as' => 'delete/encuesta', 'uses' => 'EncuestasController@getDelete'));
+    Route::get('{localizacionId}/confirm-delete', array('as' => 'confirm-delete/encuesta', 'uses' => 'EncuestasController@getModalDelete'));
+    Route::get('{localizacionId}/restore', array('as' => 'restore/encuesta', 'uses' => 'EncuestasController@getRestore'));
+});
 
 
 Route::group(array('prefix' => 'admin'), function () {
@@ -119,9 +145,7 @@ Route::group(array('prefix' => 'admin'), function () {
         Route::get('{groupId}/delete', array('as' => 'delete/group', 'uses' => 'GroupsController@getDelete'));
         Route::get('{groupId}/confirm-delete', array('as' => 'confirm-delete/group', 'uses' => 'GroupsController@getModalDelete'));
         Route::get('{groupId}/restore', array('as' => 'restore/group', 'uses' => 'GroupsController@getRestore'));
-		Route::get('any_user', 'UsersController@getUserAccess');
-		Route::get('admin_only', 'UsersController@getAdminOnlyAccess');
-    });	
+    });
 
     Route::post('crop_demo','BegarController@crop_demo');
 	# Remaining pages will be called from below controller method

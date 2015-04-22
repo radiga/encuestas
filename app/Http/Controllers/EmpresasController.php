@@ -7,8 +7,14 @@ use Redirect;
 use Lang;
 use URL;
 use App\Empresas;
+use Illuminate\Support\Facades\DB;
+
+use Illuminate\Support\Facades\Session;
 
 class EmpresasController extends BegarController {
+
+
+//  $empresa_options = Empresas::lists('nombre', 'id');
 
 
   public function Index()
@@ -21,8 +27,8 @@ class EmpresasController extends BegarController {
 
     public function getEdit($id = null)
     {
-       $empresa = Empresas::find($id);
-        return View('encuestas/empresas/edit', compact('empresa'));
+       $empresas = Empresas::find($id);
+        return View('encuestas/empresas/edit', compact('empresas'));
     }
 
 
@@ -129,6 +135,30 @@ class EmpresasController extends BegarController {
         }
     }
 
+    public function cambioempresa()
+    {
+
+        $empresas = Empresas::All();
+        return View('encuestas.empresas.cambio', compact('empresas'));
+    }
+
+
+    public function seleccionarempresa()
+    {
+
+
+        Session::put('id_empresa', Input::get('empresa'));
+
+        $nombre_empresa = DB::table('enc_empresas')->where('id','=', Input::get('empresa'))->pluck('nombre');
+
+        Session::put('nombre_empresa',$nombre_empresa);
+
+
+        $empresas = Empresas::All();
+        return View('encuestas.empresas.cambio', compact('empresas'));
+
+
+    }
 
 
 

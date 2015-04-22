@@ -9,7 +9,7 @@ class CreateEncLocalizacionesTable extends Migration {
 	{
 		Schema::create('enc_localizaciones', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('id_padre');
+			$table->integer('id_padre')->default(0);
 			$table->integer('id_empresa')->unsigned();
 			$table->string('nombre');
 			$table->timestamps();
