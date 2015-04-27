@@ -1,4 +1,4 @@
-@extends('admin/layouts/default') {{-- Web site Title --}} @section('title') @lang('admin/groups/title.create') :: @parent @stop {{-- Content --}} @section('content')
+@extends('aplicacion.layout.plantilla') {{-- Web site Title --}} @section('title') @lang('admin/groups/title.create') :: @parent @stop {{-- Content --}} @section('content')
 <section class="content-header">
     <h1>
         @lang('groups/title.create')

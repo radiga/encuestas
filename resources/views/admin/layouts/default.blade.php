@@ -32,15 +32,7 @@
 <body class="skin-josh">
     <header class="header">
         <div>
-
-                 Empresa Activa:
-             <b>
-            <?php
-            $empresa = Session::get('nombre_empresa');
-            echo $empresa;
-            ?>
-                 
-                </b>
+            @yield('empresa_activa')
         </div>
 
         <a href="{{ URL::to('admin/index') }}" class="logo">
@@ -231,71 +223,8 @@
                             </ul>
                         </li>
                         @endif
-                                <!-- ******************* Menu de la aplicación ENCUESTAS  *****************-->
-                          <!-- *** MAESTROS ***-->
 
-                            <li {!! (Request::is('admin/maestros')|| Request::is('empresas') || Request::is('localizaciones') || Request::is('tipospreguntas')|| Request::is('encuestas') ? 'class="active"' : '') !!}>
-                            <a href="#">
-                                <i class="livicon" data-name="list-ul" data-size="18" data-c="#418BCA" data-hc="#418BCA" data-loop="true"></i>
-                                <span class="title">Maestros</span>
-                                <span class="fa arrow"></span>
-                            </a>
-                                 @if (Sentry::getUser()->hasAccess('admin'))
-                                   <ul class="sub-menu">
-                                    <li {!! (Request::is('empresas') ? 'class="active" id="active"' : '') !!}>
-                                    <a href="{{ URL::to('empresas') }}">
-                                        <i class="fa fa-angle-double-right"></i>
-                                        Empresas
-                                    </a>
-                                    </li>
-                                    <li {!! (Request::is('localizaciones') ? 'class="active" id="active"' : '') !!}>
-                                    <a href="{{ URL::to('localizaciones') }}">
-                                        <i class="fa fa-angle-double-right"></i>
-                                        Localizaciones
-                                    </a>
-                                    </li>
-
-                                       <li {!! (Request::is('tipospreguntas') ? 'class="active" id="active"' : '') !!}>
-                                       <a href="{{ URL::to('tipospreguntas') }}">
-                                           <i class="fa fa-angle-double-right"></i>
-                                           Tipos de Preguntas
-                                       </a>
-                                       </li>
-
-                                       @endif
-                                    <li {!! (Request::is('encuestas') ? 'class="active" id="active"' : '') !!}>
-                                    <a href="{{ URL::to('encuestas') }}">
-                                        <i class="fa fa-angle-double-right"></i>
-                                        Encuestas
-                                    </a>
-                                    </li>
-                                </ul>
-                             </li>
-
-                            <!-- MENU GESTION ENCUESTAS-->
-
-                                <li {!! (Request::is('admin/gestionempresas')|| Request::is('secciones') || Request::is('preguntas')  ? 'class="active"' : '') !!}>
-                                <a href="#">
-                                    <i class="livicon" data-name="list-ul" data-size="18" data-c="#418BCA" data-hc="#418BCA" data-loop="true"></i>
-                                    <span class="title">Gestión Encuestas</span>
-                                    <span class="fa arrow"></span>
-                                </a>
-
-                                    <ul class="sub-menu">
-                                        <li {!! (Request::is('secciones') ? 'class="active" id="active"' : '') !!}>
-                                        <a href="{{ URL::to('secciones') }}">
-                                            <i class="fa fa-angle-double-right"></i>
-                                            Secciones
-                                        </a>
-                                        </li>
-                                        <li {!! (Request::is('preguntas') ? 'class="active" id="active"' : '') !!}>
-                                        <a href="{{ URL::to('preguntas') }}">
-                                            <i class="fa fa-angle-double-right"></i>
-                                            Preguntas
-                                        </a>
-                                        </li>
-                                    </ul>
-                                    </li>
+                        @yield('menu_aplicacion')
 
 
                     </ul>

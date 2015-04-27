@@ -1,4 +1,4 @@
-@extends('admin/layouts/default')
+@extends('aplicacion.layout.plantilla')
 
 {{-- Web site Title --}}
 @section('title')
