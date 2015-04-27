@@ -48,10 +48,6 @@
         </a>
 
 
-
-
-
-
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
             <div>
@@ -59,17 +55,10 @@
                     <div class="responsive_nav"></div>
                 </a>
 
-
             </div>
 
             <div class="navbar-right">
                 <ul class="nav navbar-nav">
-
-
-
-
-
-
 
                     <li class="dropdown user user-menu">
 
@@ -201,7 +190,7 @@
                                 <li {!! (Request::is('admin/users/create') ? 'class="active" id="active"' : '') !!}>
                                     <a href="{{ URL::to('admin/users/create') }}">
                                         <i class="fa fa-angle-double-right"></i>
-                                        Añadidr nuevo usuario
+                                        Añadir nuevo usuario
                                     </a>
                                 </li>
                                 <li {!! ((Request::is('admin/users/*')) && !(Request::is('admin/users/create')) ? 'class="active" id="active"' : '') !!}>
@@ -243,7 +232,9 @@
                         </li>
                         @endif
                                 <!-- ******************* Menu de la aplicación ENCUESTAS  *****************-->
-                            <li {!! (Request::is('admin/maestros') ? 'class="active"' : '') !!}>
+                          <!-- *** MAESTROS ***-->
+
+                            <li {!! (Request::is('admin/maestros')|| Request::is('empresas') || Request::is('localizaciones') || Request::is('tipospreguntas')|| Request::is('encuestas') ? 'class="active"' : '') !!}>
                             <a href="#">
                                 <i class="livicon" data-name="list-ul" data-size="18" data-c="#418BCA" data-hc="#418BCA" data-loop="true"></i>
                                 <span class="title">Maestros</span>
@@ -251,7 +242,7 @@
                             </a>
                                  @if (Sentry::getUser()->hasAccess('admin'))
                                    <ul class="sub-menu">
-                                    <li {!! (Request::is('encuestas') ? 'class="active" id="active"' : '') !!}>
+                                    <li {!! (Request::is('empresas') ? 'class="active" id="active"' : '') !!}>
                                     <a href="{{ URL::to('empresas') }}">
                                         <i class="fa fa-angle-double-right"></i>
                                         Empresas
@@ -279,8 +270,32 @@
                                     </a>
                                     </li>
                                 </ul>
-                                </li>
+                             </li>
 
+                            <!-- MENU GESTION ENCUESTAS-->
+
+                                <li {!! (Request::is('admin/gestionempresas')|| Request::is('secciones') || Request::is('preguntas')  ? 'class="active"' : '') !!}>
+                                <a href="#">
+                                    <i class="livicon" data-name="list-ul" data-size="18" data-c="#418BCA" data-hc="#418BCA" data-loop="true"></i>
+                                    <span class="title">Gestión Encuestas</span>
+                                    <span class="fa arrow"></span>
+                                </a>
+
+                                    <ul class="sub-menu">
+                                        <li {!! (Request::is('secciones') ? 'class="active" id="active"' : '') !!}>
+                                        <a href="{{ URL::to('secciones') }}">
+                                            <i class="fa fa-angle-double-right"></i>
+                                            Secciones
+                                        </a>
+                                        </li>
+                                        <li {!! (Request::is('preguntas') ? 'class="active" id="active"' : '') !!}>
+                                        <a href="{{ URL::to('preguntas') }}">
+                                            <i class="fa fa-angle-double-right"></i>
+                                            Preguntas
+                                        </a>
+                                        </li>
+                                    </ul>
+                                    </li>
 
 
                     </ul>
