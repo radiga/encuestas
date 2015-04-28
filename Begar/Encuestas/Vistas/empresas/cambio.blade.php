@@ -1,4 +1,4 @@
-@extends('aplicacion.layout.plantilla')
+@extends('layout.plantilla')
 
 {{-- Page title --}}
 

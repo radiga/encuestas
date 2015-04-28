@@ -80,7 +80,7 @@ class BegarController extends Controller {
         $empresas = Empresas::lists('nombre', 'id');
 
     	if(Sentry::check())
-			return View('aplicacion/index', compact('empresas'));
+			return View('index', compact('empresas'));
 		else
 			return Redirect::to('admin/signin')->with('error', 'You must be logged in!');
     }
