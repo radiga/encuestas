@@ -9,14 +9,29 @@ class Encuestas_preguntas extends Model {
 	protected $table = 'enc_encuestas_preguntas';
 	public $timestamps = true;
 
-	public function preguntas_opciones()
+	public function respuestas_posibles()
 	{
-		return $this->hasMany('encuestas\Respuestas_posibles', 'id_pregunta');
+		return $this->hasMany('Begar\Encuestas\Respuestas_posibles', 'id_pregunta');
 	}
 
-	public function preguntas_respuestas()
+	public function respuestas_preguntas()
 	{
-		return $this->hasMany('encuestas\Respuestas_preguntas', 'id_pregunta');
+		return $this->hasMany('Begar\Encuestas\Modelos\Respuestas_preguntas', 'id_pregunta');
+	}
+
+	public function tipo_pregunta()
+	{
+		return $this->belongsTo('Begar\Encuestas\Modelos\Tipos_preguntas', 'id_tipo');
+	}
+
+	public function seccion()
+	{
+		return $this->belongsTo('Begar\Encuestas\Modelos\Encuestas_secciones', 'id_seccion');
+	}
+
+	public function columna()
+	{
+		return $this->belongsTo('Begar\Encuestas\Modelos\Columnas', 'id_columna');
 	}
 
 }

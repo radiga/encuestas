@@ -1,20 +1,21 @@
 <?php
 
-//namespace App;
+use Illuminate\Database\Seeder;
+use Begar\Encuestas\Modelos\Empresas;
 
-class EmpresasTableSeeder extends DatabaseSeeder {
+class EmpresasTableSeeder extends Seeder {
 
 	public function run()
 	{
 		//DB::table('enc_empresas')->delete();
 
 		// Generar_Empresa_Aralia
-		App\Empresas::create(array(
+		Empresas::create(array(
 				'nombre' => 'Aralia Servicios Socio-Sanitarios'
 			));
 
 		// Generar Empresa UTE CD Fuencarral
-		App\Empresas::create(array(
+		Empresas::create(array(
 				'nombre' => 'Ute CD Fuencarral'
 			));
 	}

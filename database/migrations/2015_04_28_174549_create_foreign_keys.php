@@ -58,6 +58,11 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
+		Schema::table('enc_encuestas_preguntas', function(Blueprint $table) {
+			$table->foreign('id_columna')->references('id')->on('enc_columnas')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
 		Schema::table('enc_respuestas_posibles', function(Blueprint $table) {
 			$table->foreign('id_pregunta')->references('id')->on('enc_encuestas_preguntas')
 						->onDelete('restrict')
@@ -79,12 +84,17 @@ class CreateForeignKeys extends Migration {
 						->onUpdate('restrict');
 		});
 		Schema::table('enc_respuestas_preguntas', function(Blueprint $table) {
-			$table->foreign('id_pregunta')->references('id')->on('enc_encuestas_preguntas')
+			$table->foreign('id_encuesta')->references('id')->on('enc_encuestas')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
 		Schema::table('enc_plant_respuestas_posibles', function(Blueprint $table) {
 			$table->foreign('id_plantilla')->references('id')->on('enc_plantillas_preguntas')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
+		Schema::table('enc_columnas', function(Blueprint $table) {
+			$table->foreign('id_empresa')->references('id')->on('enc_empresas')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
@@ -122,6 +132,9 @@ class CreateForeignKeys extends Migration {
 		Schema::table('enc_encuestas_preguntas', function(Blueprint $table) {
 			$table->dropForeign('enc_encuestas_preguntas_id_tipo_foreign');
 		});
+		Schema::table('enc_encuestas_preguntas', function(Blueprint $table) {
+			$table->dropForeign('enc_encuestas_preguntas_id_columna_foreign');
+		});
 		Schema::table('enc_respuestas_posibles', function(Blueprint $table) {
 			$table->dropForeign('enc_respuestas_posibles_id_pregunta_foreign');
 		});
@@ -135,10 +148,13 @@ class CreateForeignKeys extends Migration {
 			$table->dropForeign('enc_respuestas_preguntas_id_respuesta_foreign');
 		});
 		Schema::table('enc_respuestas_preguntas', function(Blueprint $table) {
-			$table->dropForeign('enc_respuestas_preguntas_id_pregunta_foreign');
+			$table->dropForeign('enc_respuestas_preguntas_id_encuesta_foreign');
 		});
 		Schema::table('enc_plant_respuestas_posibles', function(Blueprint $table) {
 			$table->dropForeign('enc_plant_respuestas_posibles_id_plantilla_foreign');
+		});
+		Schema::table('enc_columnas', function(Blueprint $table) {
+			$table->dropForeign('enc_columnas_id_empresa_foreign');
 		});
 	}
 }

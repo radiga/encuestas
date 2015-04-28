@@ -4,14 +4,19 @@ namespace Begar\Encuestas\Modelos;
 
 use Illuminate\Database\Eloquent\Model;
 
-class localizaciones extends Model {
+class Localizaciones extends Model {
 
 	protected $table = 'enc_localizaciones';
 	public $timestamps = true;
 
-	public function localizaciones_respuestas()
+	public function respuestas()
 	{
-		return $this->hasMany('encuestas\Respuestas', 'id_localizacion');
+		return $this->hasMany('Begar\Encuestas\Modelos\Respuestas', 'id_localizacion');
+	}
+
+	public function empresa()
+	{
+		return $this->belongsTo('Begar\Encuestas\Modelos\Empresas', 'id_empresa');
 	}
 
 }
