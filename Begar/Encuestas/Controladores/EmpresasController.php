@@ -1,5 +1,6 @@
 <?php namespace Begar\Encuestas\Controladores;
 
+use App\Http\Controllers\BegarController;
 
 use Validator;
 use Input;
@@ -22,13 +23,13 @@ class EmpresasController extends BegarController {
 
       $empresas = Empresas::All();
 
-      return View('encuestas.empresas.index', compact('empresas'));
+      return View('empresas.index', compact('empresas'));
   }
 
     public function getEdit($id = null)
     {
        $empresas = Empresas::find($id);
-        return View('encuestas/empresas/edit', compact('empresas'));
+        return View('empresas.edit', compact('empresas'));
     }
 
 
@@ -65,7 +66,7 @@ class EmpresasController extends BegarController {
     public function getCreate()
     {
         // Show the page
-        return View('encuestas/empresas/create');
+        return View('empresas/create');
     }
 
     public function postCreate()
@@ -139,7 +140,7 @@ class EmpresasController extends BegarController {
     {
 
         $empresas = Empresas::All();
-        return View('encuestas.empresas.cambio', compact('empresas'));
+        return View('empresas.cambio', compact('empresas'));
     }
 
 
@@ -155,7 +156,7 @@ class EmpresasController extends BegarController {
 
 
         $empresas = Empresas::All();
-        return View('encuestas.empresas.cambio', compact('empresas'));
+        return View('empresas.cambio', compact('empresas'));
 
 
     }

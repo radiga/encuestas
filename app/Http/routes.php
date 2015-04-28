@@ -28,7 +28,12 @@ Route::filter('Sentry', function()
 Route::get('/', 'BegarController@showHome');
 
 
-include 'Begar/Encuestas/routes.php';
+// ****** RUTAS PARTICULARES DE NUESTRA APLICACION ******
+
+ include base_path().'/Begar/Encuestas/routes.php';
+
+//**********************************************************
+
 
 
 Route::group(array('prefix' => 'admin'), function () {

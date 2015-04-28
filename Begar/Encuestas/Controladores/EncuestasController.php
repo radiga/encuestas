@@ -1,5 +1,7 @@
 <?php namespace Begar\Encuestas\Controladores;
 
+use App\Http\Controllers\BegarController;
+
 
 use Illuminate\Support\Facades\DB;
 use Validator;
@@ -26,13 +28,13 @@ class encuestasController extends BegarController {
             ->get();
 
 
-        return View('encuestas.encuestas.index', compact('encuestas'));
+        return View('encuestas.index', compact('encuestas'));
     }
 
     public function getEdit($id = null)
     {
         $encuestas = encuestas::find($id);
-        return View('encuestas/encuestas/edit', compact('encuestas'));
+        return View('encuestas/edit', compact('encuestas'));
     }
 
 
@@ -78,7 +80,7 @@ class encuestasController extends BegarController {
     public function getCreate()
     {
         // Show the page
-        return View('encuestas/encuestas/create');
+        return View('encuestas/create');
     }
 
     public function postCreate()

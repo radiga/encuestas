@@ -1,5 +1,7 @@
 <?php namespace Begar\Encuestas\Controladores;
 
+use App\Http\Controllers\BegarController;
+
 
 use Illuminate\Support\Facades\DB;
 use Validator;
@@ -26,13 +28,13 @@ class localizacionesController extends BegarController {
             ->get();
 
 
-        return View('encuestas.localizaciones.index', compact('localizaciones'));
+        return View('localizaciones.index', compact('localizaciones'));
     }
 
     public function getEdit($id = null)
     {
         $localizaciones = Localizaciones::find($id);
-        return View('encuestas/localizaciones/edit', compact('localizaciones'));
+        return View('localizaciones/edit', compact('localizaciones'));
     }
 
 
@@ -69,7 +71,7 @@ class localizacionesController extends BegarController {
     public function getCreate()
     {
         // Show the page
-        return View('encuestas/localizaciones/create');
+        return View('localizaciones/create');
     }
 
     public function postCreate()

@@ -1,4 +1,4 @@
-<?php namespace Begar\Encuestas\Controladores;
+<?php namespace App\Http\Controllers;
 
 
 use Illuminate\Support\MessageBag;
@@ -80,7 +80,7 @@ class BegarController extends Controller {
         $empresas = Empresas::lists('nombre', 'id');
 
     	if(Sentry::check())
-			return View('admin/index', compact('empresas'));
+			return View('aplicacion/index', compact('empresas'));
 		else
 			return Redirect::to('admin/signin')->with('error', 'You must be logged in!');
     }

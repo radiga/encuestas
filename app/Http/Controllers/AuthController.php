@@ -1,4 +1,6 @@
 <?php namespace App\Http\Controllers;
+
+use Begar\Encuestas\Controladores\BegarController;
 use Sentry;
 use Cartalyst\Sentry\Users\UserExistsException;
 use Cartalyst\Sentry\Users\UserNotFoundException;
@@ -12,6 +14,7 @@ use Session;
 use Redirect;
 use Lang;
 use URL;
+
 class AuthController extends BegarController
 {
     /**

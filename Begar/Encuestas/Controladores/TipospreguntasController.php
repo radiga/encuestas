@@ -1,5 +1,6 @@
 <?php namespace Begar\Encuestas\Controladores;
 
+use App\Http\Controllers\BegarController;
 
 use Illuminate\Support\Facades\DB;
 use Validator;
@@ -20,13 +21,13 @@ class tipospreguntasController extends BegarController {
         $tipospreguntas = tipos_preguntas::All();
 
 
-        return View('encuestas.tipospreguntas.index', compact('tipospreguntas'));
+        return View('tipospreguntas.index', compact('tipospreguntas'));
     }
 
     public function getEdit($id = null)
     {
         $tipospreguntas = tipos_preguntas::find($id);
-        return View('encuestas/tipospreguntas/edit', compact('tipospreguntas'));
+        return View('tipospreguntas/edit', compact('tipospreguntas'));
     }
 
 
@@ -69,7 +70,7 @@ class tipospreguntasController extends BegarController {
     public function getCreate()
     {
         // Show the page
-        return View('encuestas/tipospreguntas/create');
+        return View('tipospreguntas/create');
     }
 
     public function postCreate()
