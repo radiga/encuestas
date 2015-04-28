@@ -120,7 +120,7 @@ class tipospreguntasController extends BegarController {
             // Get group information
             $tipospreguntas =  tipos_preguntas::find($id);
 
-            $confirm_route =  route('delete/encuesta',['id'=>$tipospreguntas->id]);
+            $confirm_route =  route('delete/tipospregunta',['id'=>$tipospreguntas->id]);
             return View('admin/layouts/modal_confirmation', compact('error', 'model', 'confirm_route'));
         } catch (Exception $e)  {
 
