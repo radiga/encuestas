@@ -78,7 +78,7 @@ Route::group(array('prefix' => 'admin'), function () {
     Route::get('activate/{activationCode}', array('as' => 'activate', 'uses' => 'AuthController@getActivate'));
 
     # Dashboard / Index
-	Route::get('/', array('as' => 'dashboard','uses' => 'BegarController@showHome'));
+	Route::get('/', array('as' => 'dashboard','uses' => '\Begar\_Controladores\BegarController@showHome'));
 
 
 
@@ -108,10 +108,10 @@ Route::group(array('prefix' => 'admin'), function () {
         Route::get('{groupId}/restore', array('as' => 'restore/group', 'uses' => 'GroupsController@getRestore'));
     });
 
-    Route::post('crop_demo','BegarController@crop_demo');
+    Route::post('crop_demo','\Begar\_Controladores\BegarController@crop_demo');
 	# Remaining pages will be called from below controller method
 	# in real world scenario, you may be required to define all routes manually
-	Route::get('{name?}', 'BegarController@showView');
+	Route::get('{name?}', '\Begar\_Controladores\BegarController@showView');
 
 
 	
