@@ -14,7 +14,10 @@ return [
 	*/
 
 	'paths' => [
-		realpath(base_path('resources/views'))
+		realpath(base_path('resources/views')),
+        realpath(base_path('Begar/_Vistas')),
+        realpath(base_path('Begar/Encuestas/Vistas'))
+
 	],
 
 	/*

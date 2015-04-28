@@ -25,68 +25,15 @@ Route::filter('Sentry', function()
 
 /*Route::get('/', 'WelcomeController@index');*/
 
-Route::get('/', 'BegarController@showHome');
+Route::get('/', '\Begar\_Controladores\BegarController@showHome');
 
 
+// ****** RUTAS PARTICULARES DE NUESTRA APLICACION ******
 
-Route::get('/encuestas/empresa/cambio',  'EmpresasController@cambioempresa');
+ include base_path().'/Begar/Encuestas/routes.php';
 
+//**********************************************************
 
-# ******* Rutas aplicacion encuestas ********
-
-  # Geatión Empresas
-  Route::group(array('prefix' => 'empresas'), function () {
-    Route::get('/', array('as' => 'empresas', 'uses' => 'EmpresasController@Index'));
-    Route::get('create', array('as' => 'create/empresa', 'uses' => 'EmpresasController@getCreate'));
-    Route::post('create', 'EmpresasController@postCreate');
-
-
-    Route::post('cambiar',  array('as' => 'cambiar/empresa', 'uses' => 'EmpresasController@seleccionarempresa'));
-
-    Route::get('{EmpresaId}/edit', array('as' => 'empresas.update', 'uses' => 'EmpresasController@getEdit'));
-    Route::post('{EmpresaId}/edit', 'EmpresasController@postEdit');
-    Route::get('{EmpresaId}/delete', array('as' => 'delete/empresa', 'uses' => 'EmpresasController@getDelete'));
-    Route::get('{EmpresaId}/confirm-delete', array('as' => 'confirm-delete/empresa', 'uses' => 'EmpresasController@getModalDelete'));
-    Route::get('{EmpresaId}/restore', array('as' => 'restore/empresa', 'uses' => 'EmpresasController@getRestore'));
-  });
-
-# Geatión Localizaciones
-Route::group(array('prefix' => 'localizaciones'), function () {
-    Route::get('/', array('as' => 'localizaciones', 'uses' => 'LocalizacionesController@Index'));
-    Route::get('create', array('as' => 'create/localizacion', 'uses' => 'LocalizacionesController@getCreate'));
-    Route::post('create', 'localizacionesController@postCreate');
-    Route::get('{localizacionId}/edit', array('as' => 'localizaciones.update', 'uses' => 'LocalizacionesController@getEdit'));
-    Route::post('{localizacionId}/edit', 'localizacionesController@postEdit');
-    Route::get('{localizacionId}/delete', array('as' => 'delete/localizacion', 'uses' => 'LocalizacionesController@getDelete'));
-    Route::get('{localizacionId}/confirm-delete', array('as' => 'confirm-delete/localizacion', 'uses' => 'LocalizacionesController@getModalDelete'));
-    Route::get('{localizacionId}/restore', array('as' => 'restore/localizacion', 'uses' => 'LocalizacionesController@getRestore'));
-});
-
-# Geatión encuestas
-Route::group(array('prefix' => 'encuestas'), function () {
-    Route::get('/', array('as' => 'encuestas', 'uses' => 'EncuestasController@Index'));
-    Route::get('create', array('as' => 'create/encuesta', 'uses' => 'EncuestasController@getCreate'));
-    Route::post('create', 'EncuestasController@postCreate');
-    Route::get('{encuestaId}/edit', array('as' => 'encuestas.update', 'uses' => 'EncuestasController@getEdit'));
-    Route::post('{encuestaId}/edit', 'EncuestasController@postEdit');
-    Route::get('{encuestaId}/delete', array('as' => 'delete/encuesta', 'uses' => 'EncuestasController@getDelete'));
-    Route::get('{encuestaId}/confirm-delete', array('as' => 'confirm-delete/encuesta', 'uses' => 'EncuestasController@getModalDelete'));
-    Route::get('{encuestaId}/restore', array('as' => 'restore/encuesta', 'uses' => 'EncuestasController@getRestore'));
-});
-
-
-
-# Geatión tipos de preguntas
-Route::group(array('prefix' => 'tipospreguntas'), function () {
-    Route::get('/', array('as' => 'tipospreguntas', 'uses' => 'TipospreguntasController@Index'));
-    Route::get('create', array('as' => 'create/tipospregunta', 'uses' => 'TipospreguntasController@getCreate'));
-    Route::post('create', 'TipospreguntasController@postCreate');
-    Route::get('{tipospreguntasId}/edit', array('as' => 'tipospreguntas.update', 'uses' => 'TipospreguntasController@getEdit'));
-    Route::post('{tipospreguntasId}/edit', 'TipospreguntasController@postEdit');
-    Route::get('{tipospreguntasId}/delete', array('as' => 'delete/tipospregunta', 'uses' => 'TipospreguntasController@getDelete'));
-    Route::get('{tipospreguntasId}/confirm-delete', array('as' => 'confirm-delete/tipospregunta', 'uses' => 'TipospreguntasController@getModalDelete'));
-    Route::get('{tipospreguntasId}/restore', array('as' => 'restore/tipospregunta', 'uses' => 'TipospreguntasController@getRestore'));
-});
 
 
 Route::group(array('prefix' => 'admin'), function () {

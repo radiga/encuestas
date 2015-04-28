@@ -12,7 +12,7 @@ use Session;
 use Redirect;
 use Lang;
 use URL;
-class AuthController extends BegarController
+class AuthController extends JoshController
 {
     /**
      * Account sign in.
@@ -304,16 +304,11 @@ class AuthController extends BegarController
      */
     public function getLogout()
     {
-
-        // vaciamos las dos variables de session al hacer logout
-        Session::forget('id_empresa');
-        Session::forget('nombre_empresa');
-
         // Log the user out
         Sentry::logout();
 
         // Redirect to the users page
-        return Redirect::to('admin/signin')->with('success', 'Has cerrado sesión correctamente!');
+        return Redirect::to('admin/signin')->with('success', 'You have successfully logged out!');
     }
 
     /**

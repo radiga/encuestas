@@ -1,4 +1,4 @@
-@extends('_Vistas')
+@extends('layout.plantilla')
 
 {{-- Page title --}}
 @section('title')
