@@ -1,4 +1,4 @@
-@extends('aplicacion.layout.plantilla')
+@extends('Begar.Encuestas.Vistas.aplicacion.layout.plantilla')
 
 {{-- Page title --}}
 @section('title')

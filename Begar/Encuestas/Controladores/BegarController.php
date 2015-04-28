@@ -1,5 +1,6 @@
-<?php namespace App\Http\Controllers;
-use App\Empresas;
+<?php namespace Begar\Encuestas\Controladores;
+
+
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -10,6 +11,10 @@ use Cartalyst\Sentry\Users\PasswordRequiredException;
 use Cartalyst\Sentry\Users\UserExistsException;
 use Cartalyst\Sentry\Users\UserNotFoundException;
 use View;
+
+use App\Http\Controllers\Controller;
+
+use Begar\Encuestas\Modelos\Empresas;
 
 
 class BegarController extends Controller {

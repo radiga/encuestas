@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace Begar\Encuestas\Controladores;
 
 
 use Illuminate\Support\Facades\DB;
@@ -7,7 +7,7 @@ use Input;
 use Redirect;
 use Lang;
 use URL;
-use App\Localizaciones;
+use Begar\Encuestas\Modelos\Localizaciones;
 use Illuminate\Support\Facades\Session;
 
 class localizacionesController extends BegarController {

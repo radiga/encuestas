@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Begar\Encuestas\Modelos;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace Begar\Encuestas\Controladores;
 
 
 use Illuminate\Support\Facades\DB;
@@ -7,7 +7,7 @@ use Input;
 use Redirect;
 use Lang;
 use URL;
-use App\Tipos_preguntas;
+use Begar\Encuestas\Modelos\Tipos_preguntas;
 
 
 class tipospreguntasController extends BegarController {

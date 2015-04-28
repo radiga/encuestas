@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace Begar\Encuestas\Controladores;
 
 
 use Validator;
@@ -6,7 +6,7 @@ use Input;
 use Redirect;
 use Lang;
 use URL;
-use App\Empresas;
+use Begar\Encuestas\Modelos\Empresas;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Session;
