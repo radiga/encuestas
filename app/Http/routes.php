@@ -25,7 +25,7 @@ Route::filter('Sentry', function()
 
 /*Route::get('/', 'WelcomeController@index');*/
 
-Route::get('/', 'BegarController@showHome');
+Route::get('/', '\Begar\_Controladores\BegarController@showHome');
 
 
 // ****** RUTAS PARTICULARES DE NUESTRA APLICACION ******

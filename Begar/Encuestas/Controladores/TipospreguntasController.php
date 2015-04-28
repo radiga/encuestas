@@ -1,6 +1,6 @@
 <?php namespace Begar\Encuestas\Controladores;
 
-use App\Http\Controllers\BegarController;
+use Begar\_Controladores\BegarController;
 
 use Illuminate\Support\Facades\DB;
 use Validator;
