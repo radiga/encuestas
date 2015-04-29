@@ -164,6 +164,32 @@ class encuestasController extends BegarController {
         }
     }
 
+    public function verSecciones($id_encuesta = null)
+    {
+
+
+       $secciones = DB::table('enc_encuestas_secciones')
+            ->where('id_encuesta', '=', $id_encuesta)
+            ->get();
+
+        return View('secciones/index', compact('secciones'));
+
+
+    }
+
+
+    public function verPreguntas($id_encuesta = null)
+    {
+
+      /*
+        $preguntas = DB::table('enc_encuestas_preguntas')
+            ->where('id_encuesta', '=', $id_encuesta)
+            ->get();
+
+        return View('preguntas/index', compact('preguntas'));*/
+
+        echo 'VER PREGUNTAS';
+    }
 
 
 

@@ -113,6 +113,23 @@
 @stop
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {{-- page level scripts --}}
 @section('footer_scripts')
     <script type="text/javascript" src="{{ asset('assets/vendors/datatables/jquery.dataTables.min.js') }}"></script>

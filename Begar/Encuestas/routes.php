@@ -44,6 +44,11 @@ Route::group(array('prefix' => 'encuestas'), function () {
     Route::get('{encuestaId}/delete', array('as' => 'delete/encuesta', 'uses' => '\Begar\Encuestas\Controladores\EncuestasController@getDelete'));
     Route::get('{encuestaId}/confirm-delete', array('as' => 'confirm-delete/encuesta', 'uses' => '\Begar\Encuestas\Controladores\EncuestasController@getModalDelete'));
     Route::get('{encuestaId}/restore', array('as' => 'restore/encuesta', 'uses' => '\Begar\Encuestas\Controladores\EncuestasController@getRestore'));
+
+    Route::get('{encuestaId}/versecciones', array('as' => 'encuestas.versecciones', 'uses' => '\Begar\Encuestas\Controladores\EncuestasController@verSecciones'));
+    Route::get('{encuestaId}/verpreguntas', array('as' => 'encuestas.verpreguntas', 'uses' => '\Begar\Encuestas\Controladores\EncuestasController@verPreguntas'));
+
+
 });
 
 
