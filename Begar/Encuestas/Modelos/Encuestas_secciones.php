@@ -9,9 +9,14 @@ class Encuestas_secciones extends Model {
 	protected $table = 'enc_encuestas_secciones';
 	public $timestamps = true;
 
-	public function secciones_preguntas()
+	public function preguntas()
 	{
-		return $this->hasMany('encuestas\Encuestas_preguntas', 'id_seccion');
+		return $this->hasMany('Begar\Encuestas\Modelos\Encuestas_preguntas', 'id_seccion');
+	}
+
+	public function encuesta()
+	{
+		return $this->belongsTo('Begar\Encuestas\Modelos\Encuestas', 'id_encuesta');
 	}
 
 }

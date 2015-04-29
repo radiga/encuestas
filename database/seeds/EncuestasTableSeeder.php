@@ -1,16 +1,17 @@
 <?php
 
-//namespace App;
 
+use Illuminate\Database\Seeder;
+use Begar\Encuestas\Modelos\Encuestas;
 
-class EncuestasTableSeeder extends DatabaseSeeder {
+class EncuestasTableSeeder extends Seeder {
 
 	public function run()
 	{
 		//DB::table('enc_encuestas')->delete();
 
 		// Encuesta_1
-		App\Encuestas::create(array(
+		Encuestas::create(array(
 				'id_empresa' => 1,
 				'titulo' => 'Encuesta de Usuarios de Centros Residenciales',
 				'descripcion' => 'Nombre ( Opcional )',

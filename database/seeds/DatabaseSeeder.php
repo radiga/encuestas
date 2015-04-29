@@ -9,27 +9,30 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-       //$this->call('AdminSeeder');
-
 		$this->call('EmpresasTableSeeder');
-		$this->command->info('Empresas table seeded!');
+		$this->command->info('empresas table seeded!');
 
 		$this->call('LocalizacionesTableSeeder');
-		$this->command->info('Localizaciones table seeded!');
+		$this->command->info('localizaciones table seeded!');
 
 		$this->call('EncuestasTableSeeder');
-		$this->command->info('Encuestas table seeded!');
+		$this->command->info('encuestas table seeded!');
 
 		$this->call('Encuestas_seccionesTableSeeder');
-		$this->command->info('Encuestas_secciones table seeded!');
+		$this->command->info('encuestas_secciones table seeded!');
+
+        $this->call('ColumnasTableSeeder');
+        $this->command->info('Columnas table seeded!');
+
 
 		$this->call('Tipos_preguntasTableSeeder');
-		$this->command->info('Tipos_preguntas table seeded!');
+		$this->command->info('tipos_preguntas table seeded!');
 
 		$this->call('Encuestas_preguntasTableSeeder');
 		$this->command->info('encuestas_preguntas table seeded!');
 
 		$this->call('Respuestas_posiblesTableSeeder');
-		$this->command->info('Respuestas_posibles table seeded!');
+		$this->command->info('respuestas_posibles table seeded!');
+
 	}
 }

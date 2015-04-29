@@ -9,9 +9,19 @@ class Respuestas extends Model {
 	protected $table = 'enc_respuestas';
 	public $timestamps = true;
 
-	public function respuestas_preguntas()
+	public function preguntas()
 	{
-		return $this->hasMany('encuestas\Respuestas_preguntas', 'id_respuesta');
+		return $this->hasMany('Begar\Encuestas\Modelos\Respuestas_preguntas', 'id_respuesta');
+	}
+
+	public function localizacion()
+	{
+		return $this->belongsTo('Begar\Encuestas\Modelos\Localizaciones', 'id_localizacion');
+	}
+
+	public function encuesta()
+	{
+		return $this->belongsTo('Begar\Encuestas\Modelos\Encuestas', 'id_encuesta');
 	}
 
 }

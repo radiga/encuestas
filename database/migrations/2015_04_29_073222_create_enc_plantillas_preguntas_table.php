@@ -12,6 +12,7 @@ class CreateEncPlantillasPreguntasTable extends Migration {
 			$table->integer('id_padre');
 			$table->integer('id_empresa')->unsigned();
 			$table->integer('id_tipo')->unsigned();
+			$table->integer('id_columna')->unsigned();
 			$table->string('titulo', 100);
 			$table->string('pregunta');
 			$table->string('ayuda')->nullable();

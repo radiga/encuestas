@@ -1,16 +1,17 @@
 <?php
 
-//namespace App;
 
+use Illuminate\Database\Seeder;
+use Begar\Encuestas\Modelos\Encuestas_secciones;
 
-class Encuestas_seccionesTableSeeder extends DatabaseSeeder {
+class Encuestas_seccionesTableSeeder extends Seeder {
 
 	public function run()
 	{
 		//DB::table('enc_encuestas_secciones')->delete();
 
 		// secciones
-		App\Encuestas_secciones::create(array(
+		Encuestas_secciones::create(array(
 				'id_encuesta' => 1,
 				'orden' => 1,
 				'nombre' => 'general',

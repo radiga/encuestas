@@ -1,28 +1,29 @@
 <?php
 
-//namespace App;
 
+use Illuminate\Database\Seeder;
+use Begar\Encuestas\Modelos\Localizaciones;
 
-class LocalizacionesTableSeeder extends DatabaseSeeder {
+class LocalizacionesTableSeeder extends Seeder {
 
 	public function run()
 	{
 		//DB::table('enc_localizaciones')->delete();
 
 		// Localizacion_central
-        App\Localizaciones::create(array(
+		Localizaciones::create(array(
 				'id_empresa' => 1,
 				'nombre' => 'Oficina Central'
 			));
 
 		// Localizacion_Elias
-        App\Localizaciones::create(array(
+		Localizaciones::create(array(
 				'id_empresa' => 1,
 				'nombre' => 'Residencia Elias Martinez'
 			));
 
 		// Localizacion_Vallecas
-        App\Localizaciones::create(array(
+		Localizaciones::create(array(
 				'id_empresa' => 1,
 				'nombre' => 'Residencia Ensanche Vallecas'
 			));

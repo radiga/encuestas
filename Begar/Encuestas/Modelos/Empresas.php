@@ -6,30 +6,32 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empresas extends Model {
 
-    protected $table = 'enc_empresas';
-    public $timestamps = true;
+	protected $table = 'enc_empresas';
+	public $timestamps = true;
 
-    public function empresas_localizaciones()
-    {
-        return $this->hasMany('encuestas\Localizaciones', 'id_empresa');
-    }
+	public function localizaciones()
+	{
+		return $this->hasMany('Begar\Encuestas\Modelos\Localizaciones', 'id_empresa');
+	}
 
-    public function Empresas_Categorias_Preguntas()
-    {
-        return $this->hasMany('encuestas\Categorias_preguntas', 'id_empresa');
-    }
+	public function categorias_preguntas()
+	{
+		return $this->hasMany('Begar\Encuestas\Modelos\Categorias_preguntas', 'id_empresa');
+	}
 
-    public function empresas_encuestas()
-    {
-        return $this->hasMany('encuestas\Encuestas', 'id_empresa');
-    }
+	public function encuestas()
+	{
+		return $this->hasMany('Begar\Encuestas\Modelos\Encuestas', 'id_empresa');
+	}
 
-    public function empresas_Plantillas_Preguntas()
-    {
-        return $this->hasMany('encuestas\Plantillas_preguntas', 'id_empresa');
-    }
+	public function plantillas_preguntas()
+	{
+		return $this->hasMany('Begar\Encuestas\Modelos\Plantillas_preguntas', 'id_empresa');
+	}
 
-
-
+	public function columnas()
+	{
+		return $this->hasMany('Begar\Encuestas\Modelos\Columnas', 'id_empresa');
+	}
 
 }
