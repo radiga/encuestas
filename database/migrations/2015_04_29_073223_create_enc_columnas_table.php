@@ -9,12 +9,12 @@ class CreateEncColumnasTable extends Migration {
 	{
 		Schema::create('enc_columnas', function(Blueprint $table) {
 			$table->increments('id');
+			$table->integer('id_empresa')->unsigned();
 			$table->string('codigo', 50)->unique();
 			$table->string('descripcion', 150)->nullable();
 			$table->string('codigo_interno', 50)->unique();
 			$table->string('tipo_columna', 1)->default('v');
 			$table->timestamps();
-			$table->integer('id_empresa')->unsigned();
 		});
 	}
 

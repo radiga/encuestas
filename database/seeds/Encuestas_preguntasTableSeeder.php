@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Database\Seeder;
 use Begar\Encuestas\Modelos\Encuestas_preguntas;
 
@@ -18,7 +17,8 @@ class Encuestas_preguntasTableSeeder extends Seeder {
 				'pregunta' => 'Nombre y Apellidos',
 				'ayuda' => 'Escribe tú nombre y Apellidos ',
 				'obligatoria' => false,
-				'id_columna' => 1
+				'id_columna' => 1,
+				'orden' => 5
 			));
 
 		// Pregunta_02
@@ -29,7 +29,8 @@ class Encuestas_preguntasTableSeeder extends Seeder {
 				'pregunta' => 'Género',
 				'ayuda' => 'Hombre/Mujer',
 				'obligatoria' => true,
-				'id_columna' => 2
+				'id_columna' => 2,
+				'orden' => 10
 			));
 
 		// Pregunta_03
@@ -39,7 +40,8 @@ class Encuestas_preguntasTableSeeder extends Seeder {
 				'titulo' => 'Habitación',
 				'pregunta' => '¿Cómo es su habituación?',
 				'obligatoria' => true,
-				'id_columna' => 3
+				'id_columna' => 3,
+				'orden' => 15
 			));
 
 		// Pregunta_04
@@ -49,7 +51,8 @@ class Encuestas_preguntasTableSeeder extends Seeder {
 				'titulo' => 'Antiguedad',
 				'pregunta' => '¿Cuanto tiempo lleva en nuestra Residencia?',
 				'obligatoria' => true,
-				'id_columna' => 4
+				'id_columna' => 4,
+				'orden' => 20
 			));
 
 		// Pregunta_05
@@ -59,7 +62,8 @@ class Encuestas_preguntasTableSeeder extends Seeder {
 				'titulo' => 'Grado de Satisfacción',
 				'pregunta' => 'En general, ¿Cual es su grado de satisfacción con nuestra Residencia?',
 				'obligatoria' => true,
-				'id_columna' => 5
+				'id_columna' => 5,
+				'orden' => 25
 			));
 	}
 }

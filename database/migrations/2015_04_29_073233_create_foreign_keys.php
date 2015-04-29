@@ -28,6 +28,11 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
+		Schema::table('enc_plantillas_preguntas', function(Blueprint $table) {
+			$table->foreign('id_columna')->references('id')->on('enc_columnas')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
 		Schema::table('enc_encuestas', function(Blueprint $table) {
 			$table->foreign('id_empresa')->references('id')->on('enc_empresas')
 						->onDelete('restrict')
@@ -113,6 +118,9 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('enc_plantillas_preguntas', function(Blueprint $table) {
 			$table->dropForeign('enc_plantillas_preguntas_id_tipo_foreign');
+		});
+		Schema::table('enc_plantillas_preguntas', function(Blueprint $table) {
+			$table->dropForeign('enc_plantillas_preguntas_id_columna_foreign');
 		});
 		Schema::table('enc_encuestas', function(Blueprint $table) {
 			$table->dropForeign('enc_encuestas_id_empresa_foreign');

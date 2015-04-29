@@ -13,6 +13,7 @@ class CreateEncEncuestasPreguntasTable extends Migration {
 			$table->integer('id_seccion')->unsigned();
 			$table->integer('id_tipo')->unsigned();
 			$table->integer('id_columna')->unsigned();
+			$table->integer('orden');
 			$table->string('titulo', 100)->nullable();
 			$table->string('pregunta');
 			$table->string('ayuda')->nullable();

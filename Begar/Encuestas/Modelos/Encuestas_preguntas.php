@@ -11,7 +11,7 @@ class Encuestas_preguntas extends Model {
 
 	public function respuestas_posibles()
 	{
-		return $this->hasMany('Begar\Encuestas\Respuestas_posibles', 'id_pregunta');
+		return $this->hasMany('Begar\Encuestas\Modelos\Respuestas_posibles', 'id_pregunta');
 	}
 
 	public function respuestas_preguntas()
