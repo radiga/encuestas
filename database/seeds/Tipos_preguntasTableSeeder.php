@@ -38,5 +38,13 @@ class Tipos_preguntasTableSeeder extends Seeder {
             'estilo' => 'Memo'
         ));
 
-	}
+        // tipo_pregunta_05
+        Tipos_preguntas::create(array(
+            'tipo' => 'E',
+            'nombre' => 'Elegir varios entre varios',
+            'estilo' => 'CheckBox'
+        ));
+
+
+    }
 }

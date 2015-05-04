@@ -325,5 +325,105 @@ class ColumnasTableSeeder extends Seeder {
             'id_empresa' => 1
         ));
 
+        // columna_35
+        Columnas::create(array(
+            'codigo' => 'SUGERENCIA_COMIDA',
+            'descripcion' => 'Comida',
+            'codigo_interno' => 'v34',
+            'tipo_columna' => 'v',
+            'id_empresa' => 1
+        ));
+
+
+        // columna_36
+        Columnas::create(array(
+            'codigo' => 'SUGERENCIA_TEMPERATURA',
+            'descripcion' => 'Temperatura',
+            'codigo_interno' => 'v35',
+            'tipo_columna' => 'v',
+            'id_empresa' => 1
+        ));
+
+
+        // columna_37
+        Columnas::create(array(
+            'codigo' => 'SUGERENCIA_TRATO',
+            'descripcion' => 'Trato',
+            'codigo_interno' => 'v36',
+            'tipo_columna' => 'v',
+            'id_empresa' => 1
+        ));
+
+        // columna_38
+        Columnas::create(array(
+            'codigo' => 'SUGERENCIA_PERSONAL',
+            'descripcion' => 'Personal',
+            'codigo_interno' => 'v37',
+            'tipo_columna' => 'v',
+            'id_empresa' => 1
+        ));
+
+        // columna_39
+        Columnas::create(array(
+            'codigo' => 'SUGERENCIA_AVERIAS',
+            'descripcion' => 'Averias',
+            'codigo_interno' => 'v38',
+            'tipo_columna' => 'v',
+            'id_empresa' => 1
+        ));
+
+        // columna_40
+        Columnas::create(array(
+            'codigo' => 'SUGERENCIA_PERSONALES',
+            'descripcion' => 'Personales',
+            'codigo_interno' => 'v39',
+            'tipo_columna' => 'v',
+            'id_empresa' => 1
+        ));
+
+        // columna_41
+        Columnas::create(array(
+            'codigo' => 'SUGERENCIA_LIMPIEZA',
+            'descripcion' => 'Limpieza',
+            'codigo_interno' => 'v40',
+            'tipo_columna' => 'v',
+            'id_empresa' => 1
+        ));
+
+          // columna_42
+        Columnas::create(array(
+            'codigo' => 'SUGERENCIA_LAVANDERIA',
+            'descripcion' => 'Lavanderia',
+            'codigo_interno' => 'v41',
+            'tipo_columna' => 'v',
+            'id_empresa' => 1
+        ));
+
+        // columna_43
+        Columnas::create(array(
+            'codigo' => 'SUGERENCIA_ACTIVIDADES',
+            'descripcion' => 'Actividades',
+            'codigo_interno' => 'v42',
+            'tipo_columna' => 'v',
+            'id_empresa' => 1
+        ));
+
+        // columna_44
+        Columnas::create(array(
+            'codigo' => 'SUGERENCIA_VARIOS',
+            'descripcion' => 'Comida',
+            'codigo_interno' => 'v43',
+            'tipo_columna' => 'v',
+            'id_empresa' => 1
+        ));
+
+
+
+
+
+
+
+
+
     }
 }
