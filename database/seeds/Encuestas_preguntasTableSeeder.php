@@ -8,7 +8,7 @@ class Encuestas_preguntasTableSeeder extends Seeder {
 	public function run()
 	{
 		//DB::table('enc_encuestas_preguntas')->delete();
-
+/*
 		// Pregunta_01
 		Encuestas_preguntas::create(array(
 				'id_seccion' => 1,
@@ -65,5 +65,6 @@ class Encuestas_preguntasTableSeeder extends Seeder {
 				'id_columna' => 5,
 				'orden' => 25
 			));
+*/
 	}
 }

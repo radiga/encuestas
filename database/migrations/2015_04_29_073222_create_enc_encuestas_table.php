@@ -20,7 +20,8 @@ class CreateEncEncuestasTable extends Migration {
 			$table->date('fecha_inicio')->nullable();
 			$table->date('fecha_fin')->nullable();
 			$table->boolean('anonima')->default(true);
-			$table->timestamps();
+            $table->integer('entregadas')->nullable()->default('0');
+            $table->timestamps();
 		});
 	}
 

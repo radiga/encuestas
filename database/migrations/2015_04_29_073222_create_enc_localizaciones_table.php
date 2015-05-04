@@ -12,6 +12,8 @@ class CreateEncLocalizacionesTable extends Migration {
 			$table->integer('id_padre')->default('0');
 			$table->integer('id_empresa')->unsigned();
 			$table->string('nombre');
+            $table->integer('numero_total')->default('0')->nullable();
+            $table->integer('numero_posible')->default('0')->nullable();
 			$table->timestamps();
 		});
 	}

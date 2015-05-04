@@ -34,5 +34,17 @@ class DatabaseSeeder extends Seeder {
 		$this->call('Respuestas_posiblesTableSeeder');
 		$this->command->info('respuestas_posibles table seeded!');
 
+        $this->call('Categorias_preguntasTableSeeder');
+        $this->command->info('categorias_preguntas table seeded!');
+
+        $this->call('Plantillas_preguntasTableSeeder');
+        $this->command->info('plantillas_preguntas table seeded!');
+
+        $this->call('Categorias_plantillasTableSeeder');
+        $this->command->info('categorias_plantillas table seeded!');
+
+        $this->call('Plantillas_respuestas_posiblesTableSeeder');
+        $this->command->info('plantillas_respuestas_posibles table seeded!');
+
 	}
 }
