@@ -408,6 +408,16 @@ class Plantillas_preguntasTableSeeder extends Seeder {
             'obligatoria' => true
         ));
 
+        // Plan_37
+        Plantillas_preguntas::create(array(
+            'id_empresa' => 1,
+            'id_tipo' => 5,
+            'id_columna' => 1,
+            'titulo' => 'Detalle Sugerencias',
+            'pregunta' => 'Detalle de las sugerencias',
+            'ayuda' => 'Sugerencias',
+            'obligatoria' => false
+        ));
 
 
 

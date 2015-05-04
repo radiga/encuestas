@@ -125,7 +125,12 @@ class Categorias_plantillasTableSeeder extends Seeder {
             'id_plantilla' => 23,
             'orden' => 115
         ));
-        
+        Categorias_plantillas::create(array(
+            'id_categoria' => 1,
+            'id_plantilla' => 37,
+            'orden' => 120
+        ));
+
 		// cat_pla_02
         Categorias_plantillas::create(array(
             'id_categoria' => 2,
@@ -232,6 +237,12 @@ class Categorias_plantillasTableSeeder extends Seeder {
             'id_plantilla' => 23,
             'orden' => 115
         ));
+        Categorias_plantillas::create(array(
+            'id_categoria' => 2,
+            'id_plantilla' => 37,
+            'orden' => 120
+        ));
+
 
         // cat_pla_03
 
@@ -296,6 +307,11 @@ class Categorias_plantillasTableSeeder extends Seeder {
             'id_categoria' => 3,
             'id_plantilla' => 23,
             'orden' => 60
+        ));
+        Categorias_plantillas::create(array(
+            'id_categoria' => 3,
+            'id_plantilla' => 37,
+            'orden' => 65
         ));
 
 

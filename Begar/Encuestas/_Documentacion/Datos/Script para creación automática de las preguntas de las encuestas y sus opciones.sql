@@ -35,4 +35,16 @@ where prp.id_plantilla=ppp.id
       and epp.ayuda=ppp.ayuda and epp.obligatoria=ppp.obligatoria 
 );
 
+-- Creación automática de las SubPreguntas de Sugerencias para cada Encuesta:
+
+insert into begar.enc_encuestas_preguntas
+(id_padre, id_seccion, id_tipo, id_columna, orden, titulo, pregunta, obligatoria, created_at, updated_at)
+(
+select  ep.id as id_padre, ep.id_seccion as id_seccion, 5 as id_tipo,  col.id as id_columna, (col.id-35)*5 as orden, col.descripcion as titulo, col.descripcion as pregunta, 0 as obligatoria, now() as created_at, now() as updated_at
+from enc_columnas col,
+     enc_encuestas_preguntas ep
+where col.id>=36
+      and ep.id_padre=0
+      and ep.id_tipo=5
+);
 commit;
