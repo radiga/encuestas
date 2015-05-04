@@ -72,9 +72,9 @@
 
                                         <a href="{{ route('confirm-delete/encuesta', $encuesta->id) }}" data-toggle="modal" data-target="#delete_confirm"><i class="livicon" data-name="user-remove" data-size="18" data-loop="true" data-c="#f56954" data-hc="#f56954" title="borrar encuesta"></i></a>
 
-                                        <a href="{{ route('encuestas.versecciones', $encuesta->id) }}">Ver secciones</i></a>
+                                        <a href="{{ route('secciones.index', $encuesta->id) }}"><i>Ver secciones</i></a>
 
-                                        <a href="{{ route('encuestas.verpreguntas', $encuesta->id) }}">Ver Preguntas</i></a>
+                                        <a href="{{ route('preguntas.index', $encuesta->id) }}"><i>Ver Preguntas</i></a>
 
                                     </td>
                                 </tr>

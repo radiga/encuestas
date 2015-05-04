@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 # ******* Rutas aplicacion encuestas ********
 
 # Geatión Empresas
@@ -34,7 +32,7 @@ Route::group(array('prefix' => 'localizaciones'), function () {
     Route::get('{localizacionId}/restore', array('as' => 'restore/localizacion', 'uses' => '\Begar\Encuestas\Controladores\LocalizacionesController@getRestore'));
 });
 
-# Geatión encuestas
+# Gestión encuestas
 Route::group(array('prefix' => 'encuestas'), function () {
     Route::get('/', array('as' => 'encuestas', 'uses' => '\Begar\Encuestas\Controladores\EncuestasController@Index'));
     Route::get('create', array('as' => 'create/encuesta', 'uses' => '\Begar\Encuestas\Controladores\EncuestasController@getCreate'));
@@ -45,13 +43,24 @@ Route::group(array('prefix' => 'encuestas'), function () {
     Route::get('{encuestaId}/confirm-delete', array('as' => 'confirm-delete/encuesta', 'uses' => '\Begar\Encuestas\Controladores\EncuestasController@getModalDelete'));
     Route::get('{encuestaId}/restore', array('as' => 'restore/encuesta', 'uses' => '\Begar\Encuestas\Controladores\EncuestasController@getRestore'));
 
-    Route::get('{encuestaId}/versecciones', array('as' => 'encuestas.versecciones', 'uses' => '\Begar\Encuestas\Controladores\EncuestasController@verSecciones'));
-    Route::get('{encuestaId}/verpreguntas', array('as' => 'encuestas.verpreguntas', 'uses' => '\Begar\Encuestas\Controladores\EncuestasController@verPreguntas'));
-
-
 });
 
 
+# Gestión de preguntas
+Route::get('{id_encuesta}/preguntas', array('as' => 'preguntas.index', 'uses' => '\Begar\Encuestas\Controladores\PreguntasController@index'));
+
+# Gestión secciones
+
+Route::group(array('prefix' => 'secciones'), function () {
+    Route::get('/', array('as' => 'secciones', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@Index'));
+    Route::get('{id_encuesta}/create', array('as' => 'create/seccion', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@getCreate'));
+    Route::post('{id_encuesta}/create', '\Begar\Encuestas\Controladores\SeccionesController@postCreate');
+    Route::get('{id_encuesta}/secciones', array('as' => 'secciones.index', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@Index'));
+    Route::get('{id_seccion}/edit', array('as' => 'secciones.update', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@getEdit'));
+    Route::post('{id_seccion}/edit', '\Begar\Encuestas\Controladores\SeccionesController@postEdit');
+    Route::get('{id_seccion}/delete', array('as' => 'delete/seccion', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@getDelete'));
+    Route::get('{id_seccion}/confirm-delete', array('as' => 'confirm-delete/seccion', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@getModalDelete'));
+});
 
 # Geatión tipos de preguntas
 Route::group(array('prefix' => 'tipospreguntas'), function () {

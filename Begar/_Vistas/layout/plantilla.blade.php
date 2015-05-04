@@ -18,7 +18,7 @@
         <!-- ******************* Menu de la aplicación ENCUESTAS  *****************-->
         <!-- *** MAESTROS ***-->
 
-        <li {!! (Request::is('admin/maestros')|| Request::is('empresas') || Request::is('localizaciones') || Request::is('tipospreguntas')|| Request::is('encuestas') ? 'class="active"' : '') !!}>
+        <li {!! (Request::is('admin/maestros')|| Request::is('empresas') || Request::is('localizaciones') || Request::is('encuestas')|| Request::is('tipospreguntas')|| Request::is('encuestas/*') ? 'class="active"' : '') !!}>
         <a href="#">
             <i class="livicon" data-name="list-ul" data-size="18" data-c="#418BCA" data-hc="#418BCA" data-loop="true"></i>
             <span class="title">Maestros</span>
