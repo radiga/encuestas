@@ -53,12 +53,10 @@
                         <div class="table-toolbar">
                             <div class="btn-group">
 
+                                    <a href="{{ route('create/seccion', $encuestas->id) }}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span> Añadir Sección</a>
 
 
-                                    <a href="{{ route('create/seccion', $encuestas->id) }}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span> Añadir Sección)</a>
-
-
-                                    <i class="fa fa-plus"></i>
+                            </div>
                         <!--    <div class="btn-group pull-right">
                                 <button class="btn dropdown-toggle btn-custom" data-toggle="dropdown">
                                     Tools

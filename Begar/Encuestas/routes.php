@@ -49,12 +49,12 @@ Route::group(array('prefix' => 'encuestas'), function () {
 # Gestión de preguntas
 Route::get('{id_encuesta}/preguntas', array('as' => 'preguntas.index', 'uses' => '\Begar\Encuestas\Controladores\PreguntasController@index'));
 
-# Gestión secciones
 
+# Gestión secciones
 Route::group(array('prefix' => 'secciones'), function () {
     Route::get('/', array('as' => 'secciones', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@Index'));
     Route::get('{id_encuesta}/create', array('as' => 'create/seccion', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@getCreate'));
-    Route::post('{id_encuesta}/create', '\Begar\Encuestas\Controladores\SeccionesController@postCreate');
+    Route::post('{id_encuesta}/create', array('as' => 'create/seccion', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@postCreate'));
     Route::get('{id_encuesta}/secciones', array('as' => 'secciones.index', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@Index'));
     Route::get('{id_seccion}/edit', array('as' => 'secciones.update', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@getEdit'));
     Route::post('{id_seccion}/edit', '\Begar\Encuestas\Controladores\SeccionesController@postEdit');

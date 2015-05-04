@@ -2,9 +2,11 @@
 
 use Begar\_Controladores\BegarController;
 
+use Illuminate\Support\Facades\Session;
 
 
 use Illuminate\Support\Facades\DB;
+
 
 use Validator;
 use Input;
@@ -85,15 +87,21 @@ class SeccionesController extends BegarController {
     }
 
 
-    public function getCreate()
+    public function getCreate($id_encuesta = null)
     {
-        // Show the page
+
+        echo $id_encuesta;
+
+        Session::put('id_encuesta', $id_encuesta);
+
+
         return View('secciones/create');
     }
 
 
     public function postCreate($id_encuesta = null)
     {
+
 
         $rules = array(
             'orden' => 'required',
@@ -107,9 +115,9 @@ class SeccionesController extends BegarController {
             return Redirect::back()->withInput()->withErrors($validator);
         }
 
-        $secciones = new secciones;
+        $secciones = new Encuestas_secciones;
 
-        $secciones->id_encuesta = $id_encuesta;
+        $secciones->id_encuesta = Session::get('id_encuesta');
         $secciones->nombre = Input::get('nombre');
         $secciones->orden = Input::get('orden');
 
@@ -117,7 +125,7 @@ class SeccionesController extends BegarController {
 
         if ($secciones->save()) {
             // Redirect to the new group page
-            return Redirect::route('secciones')->with('success', Lang::get('secciones/message.success.create'));
+            return Redirect::route('secciones.index',Session::get('id_encuesta'))->with('success', Lang::get('secciones/message.success.create'));
         }
 
     }
@@ -125,11 +133,12 @@ class SeccionesController extends BegarController {
 
     public function getModalDelete($id = null)
     {
-        $model = 'secciones';
+
+       $model = 'secciones';
         $confirm_route = $error = null;
         try {
             // Get group information
-            $secciones =  secciones::find($id);
+            $secciones =  Encuestas_secciones::find($id);
 
             $confirm_route =  route('delete/seccion',['id'=>$secciones->id]);
             return View('admin/layouts/modal_confirmation', compact('error', 'model', 'confirm_route'));
@@ -145,7 +154,7 @@ class SeccionesController extends BegarController {
     {
         try {
             // Get group information
-            $secciones = secciones::find($id);
+            $secciones = Encuestas_secciones::find($id);
 
             // Delete the group
             $secciones->delete();
