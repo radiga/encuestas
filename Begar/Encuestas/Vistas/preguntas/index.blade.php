@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    Secciones
+    preguntas
     @parent
 @stop
 
@@ -17,7 +17,7 @@
 {{-- Page content --}}
 @section('content')
     <section class="content-header">
-        <h1>Secciones de la encuesta</h1>
+        <h1>preguntas de la encuesta</h1>
         <ol class="breadcrumb">
             <li>
                 <a href="{{ route('dashboard') }}"> <i class="livicon" data-name="home" data-size="18" data-loop="true"></i>
@@ -25,9 +25,9 @@
                 </a>
             </li>
             <li>
-                <a href="#">Secciones</a>
+                <a href="#">preguntas</a>
             </li>
-            <li class="active">Secciones</li>
+            <li class="active">preguntas</li>
         </ol>
     </section>
 
@@ -53,7 +53,7 @@
                         <div class="table-toolbar">
                             <div class="btn-group">
 
-                                    <a href="{{ route('create/seccion', $encuestas->id) }}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span> Añadir Sección</a>
+                                    <a href="{{ route('create/pregunta', $encuestas->id) }}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span> Añadir pregunta</a>
 
 
                             </div>
@@ -80,23 +80,37 @@
                                 <thead>
                                 <tr class="filters">
                                     <th>id</th>
+                                    <th>id_padre</th>
+                                    <th>nombre sección</th>
+                                    <th>tipo pregunta</th>
+                                    <th>columna</th>
                                     <th>orden</th>
-                                    <th>Nombre</th>
-                                    <th>Descripción</th>
+                                    <th>titulo</th>
+                                    <th>pregunta</th>
+                                    <th>ayuda</th>
+                                    <th>obligatoria</th>
+                                    <th>estilo</th>
                                     <th>Acciones</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($secciones as $seccion)
+                                @foreach ($preguntas as $pregunta)
                                     <tr>
-                                        <td>{{{ $seccion->id  }}}</td>
-                                        <td>{{{ $seccion->orden }}}</td>
-                                        <td>{{{ $seccion->nombre  }}}</td>
-                                        <td>{{{ $seccion->descripcion }}}</td>
+                                        <td>{{{ $pregunta->id  }}}</td>
+                                        <td>{{{ $pregunta->id_padre }}}</td>
+                                        <td>{{{ $pregunta->nombre }}}</td>
+                                        <td>{{{ $pregunta->tipo }}}</td>
+                                        <td>{{{ $pregunta->id_columna }}}</td>
+                                        <td>{{{ $pregunta->orden }}}</td>
+                                        <td>{{{ $pregunta->titulo }}}</td>
+                                        <td>{{{ $pregunta->pregunta }}}</td>
+                                        <td>{{{ $pregunta->ayuda }}}</td>
+                                        <td>{{{ $pregunta->obligatoria  }}}</td>
+                                        <td>{{{ $pregunta->estilo }}}</td>
                                         <td>
-                                            <a href="{{ route('secciones.update', $seccion->id) }}"><i class="livicon" data-name="edit" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="actualizar sección"></i></a>
+                                            <a href="{{ route('preguntas.update', $pregunta->id) }}"><i class="livicon" data-name="edit" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="editar pregunta"></i></a>
 
-                                            <a href="{{ route('confirm-delete/seccion', $seccion->id) }}" data-toggle="modal" data-target="#delete_confirm"><i class="livicon" data-name="user-remove" data-size="18" data-loop="true" data-c="#f56954" data-hc="#f56954" title="borrar sección"></i></a>
+                                            <a href="{{ route('confirm-delete/pregunta', $pregunta->id) }}" data-toggle="modal" data-target="#delete_confirm"><i class="livicon" data-name="user-remove" data-size="18" data-loop="true" data-c="#f56954" data-hc="#f56954" title="borrar pregunta"></i></a>
 
                                         </td>
                                     </tr>

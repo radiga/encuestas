@@ -32,6 +32,10 @@
             oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
             oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 5, false);
             oTable.fnDraw();
+
+
+
+
         }
 
         function cancelEditRow(oTable, nRow) {
@@ -107,13 +111,30 @@
         table.on('click', '.delete', function (e) {
             e.preventDefault();
 
-            if (confirm("Are you sure to delete this row ?") == false) {
+            if (confirm("Estás seguro de borrar esta fila?") == false) {
                 return;
             }
 
             var nRow = $(this).parents('tr')[0];
             oTable.fnDeleteRow(nRow);
-            alert("Deleted! Do not forget to do some ajax to sync with backend :)");
+
+            // llamada al
+            $.post(
+                $(this).prop('action'),        {
+                    "row":nRow
+                },
+                function(data){
+                    //response after the process.
+                    alert('fila borrada correctamente');
+                },
+                'json'
+            );
+
+            //alert("Deleted! Do not forget to do some ajax to sync with backend :)");
+
+
+
+
         });
 
         table.on('click', '.cancel', function (e) {
@@ -141,9 +162,20 @@
                 nEditing = nRow;
             } else if (nEditing == nRow && this.innerHTML == "Save") {
                 /* Editing this row and want to save it */
+
                 saveRow(oTable, nEditing);
+
                 nEditing = null;
-                alert("Updated! Do not forget to do some ajax to sync with backend :)");
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://plantilla.app/grabar",
+                    data: nRow
+                });
+
+
+
+
             } else {
                 /* No edit in progress - let's start one */
                 editRow(oTable, nRow);

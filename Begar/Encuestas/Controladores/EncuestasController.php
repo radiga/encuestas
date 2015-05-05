@@ -4,12 +4,15 @@ use Begar\_Controladores\BegarController;
 
 
 use Illuminate\Support\Facades\DB;
+
 use Validator;
 use Input;
 use Redirect;
 use Lang;
 use URL;
 use Begar\Encuestas\Modelos\encuestas;
+
+
 use Illuminate\Support\Facades\Session;
 
 class encuestasController extends BegarController {
@@ -75,7 +78,6 @@ class encuestasController extends BegarController {
 
         }
     }
-
 
     public function getCreate()
     {
@@ -166,7 +168,33 @@ class encuestasController extends BegarController {
 
 
 
+    public function verPreguntas($id_encuesta = null)
+    {
 
+      /*
+        $preguntas = DB::table('enc_encuestas_preguntas')
+            ->where('id_encuesta', '=', $id_encuesta)
+            ->get();
+
+        return View('preguntas/index', compact('preguntas'));*/
+
+        echo 'VER PREGUNTAS';
+    }
+
+
+
+    public function grabarSeccion($id = null)
+    {
+
+            $seccion = Encuestas_secciones::find($id);
+
+            $seccion->orden = Input::get('orden');
+            $seccion->nombre = Input::get('nombre');
+            $seccion->descripcion = Input::get('descripcion');
+
+            $seccion->save();
+
+    }
 
 }
 
