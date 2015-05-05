@@ -41,7 +41,7 @@ class preguntasController extends BegarController {
           ->join('enc_encuestas_secciones', function($join)
           {
               $join->on('enc_encuestas_preguntas.id_seccion', '=', 'enc_encuestas_secciones.id')
-                  ->where('enc_encuestas_secciones.id_encuesta', '=', 1);
+                  ->where('enc_encuestas_secciones.id_encuesta', '=', session::get('id_encuesta'));
 
           })
 
