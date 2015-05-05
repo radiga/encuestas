@@ -83,16 +83,6 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
-		Schema::table('enc_respuestas_preguntas', function(Blueprint $table) {
-			$table->foreign('id_respuesta')->references('id')->on('enc_respuestas')
-						->onDelete('restrict')
-						->onUpdate('restrict');
-		});
-		Schema::table('enc_respuestas_preguntas', function(Blueprint $table) {
-			$table->foreign('id_encuesta')->references('id')->on('enc_encuestas')
-						->onDelete('restrict')
-						->onUpdate('restrict');
-		});
 		Schema::table('enc_plant_respuestas_posibles', function(Blueprint $table) {
 			$table->foreign('id_plantilla')->references('id')->on('enc_plantillas_preguntas')
 						->onDelete('restrict')
@@ -151,12 +141,6 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('enc_respuestas', function(Blueprint $table) {
 			$table->dropForeign('enc_respuestas_id_encuesta_foreign');
-		});
-		Schema::table('enc_respuestas_preguntas', function(Blueprint $table) {
-			$table->dropForeign('enc_respuestas_preguntas_id_respuesta_foreign');
-		});
-		Schema::table('enc_respuestas_preguntas', function(Blueprint $table) {
-			$table->dropForeign('enc_respuestas_preguntas_id_encuesta_foreign');
 		});
 		Schema::table('enc_plant_respuestas_posibles', function(Blueprint $table) {
 			$table->dropForeign('enc_plant_respuestas_posibles_id_plantilla_foreign');

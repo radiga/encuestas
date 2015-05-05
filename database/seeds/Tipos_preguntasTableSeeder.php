@@ -30,5 +30,21 @@ class Tipos_preguntasTableSeeder extends Seeder {
 				'nombre' => 'Texto Libre',
 				'estilo' => 'text'
 			));
-	}
+
+        // tipo_pregunta_04
+        Tipos_preguntas::create(array(
+            'tipo' => 'D',
+            'nombre' => 'Campo MEMO',
+            'estilo' => 'Memo'
+        ));
+
+        // tipo_pregunta_05
+        Tipos_preguntas::create(array(
+            'tipo' => 'E',
+            'nombre' => 'Elegir varios entre varios',
+            'estilo' => 'CheckBox'
+        ));
+
+
+    }
 }
