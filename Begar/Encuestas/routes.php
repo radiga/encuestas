@@ -62,6 +62,24 @@ Route::group(array('prefix' => 'secciones'), function () {
     Route::get('{id_seccion}/confirm-delete', array('as' => 'confirm-delete/seccion', 'uses' => '\Begar\Encuestas\Controladores\SeccionesController@getModalDelete'));
 });
 
+
+
+# Gestión preguntas
+Route::group(array('prefix' => 'preguntas'), function () {
+    Route::get('/', array('as' => 'preguntas', 'uses' => '\Begar\Encuestas\Controladores\preguntasController@Index'));
+    Route::get('{id_encuesta}/create', array('as' => 'create/pregunta', 'uses' => '\Begar\Encuestas\Controladores\preguntasController@getCreate'));
+    Route::post('{id_encuesta}/create', array('as' => 'create/pregunta', 'uses' => '\Begar\Encuestas\Controladores\preguntasController@postCreate'));
+    Route::get('{id_encuesta}/preguntas', array('as' => 'preguntas.index', 'uses' => '\Begar\Encuestas\Controladores\preguntasController@Index'));
+    Route::get('{id_pregunta}/edit', array('as' => 'preguntas.update', 'uses' => '\Begar\Encuestas\Controladores\preguntasController@getEdit'));
+    Route::post('{id_pregunta}/edit', '\Begar\Encuestas\Controladores\preguntasController@postEdit');
+    Route::get('{id_pregunta}/delete', array('as' => 'delete/pregunta', 'uses' => '\Begar\Encuestas\Controladores\preguntasController@getDelete'));
+    Route::get('{id_pregunta}/confirm-delete', array('as' => 'confirm-delete/pregunta', 'uses' => '\Begar\Encuestas\Controladores\preguntasController@getModalDelete'));
+});
+
+
+
+
+
 # Geatión tipos de preguntas
 Route::group(array('prefix' => 'tipospreguntas'), function () {
     Route::get('/', array('as' => 'tipospreguntas', 'uses' => '\Begar\Encuestas\Controladores\TiposPreguntasController@Index'));

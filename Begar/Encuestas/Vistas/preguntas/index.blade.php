@@ -1,34 +1,38 @@
-@extends('layout.plantilla')
+@extends('layout/plantilla')
 
 {{-- Page title --}}
 @section('title')
-    Secciones
-@parent
+    preguntas
+    @parent
 @stop
 
 {{-- page level styles --}}
 @section('header_styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/datatables/css/select2.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/datatables/css/dataTables.bootstrap.css') }}" />
     <link href="{{ asset('assets/css/pages/tables.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
+
+{{-- Page content --}}
 @section('content')
     <section class="content-header">
-        <h1>Secciones</h1>
+        <h1>preguntas de la encuesta</h1>
         <ol class="breadcrumb">
             <li>
-                <a href="{{ route('dashboard') }}"> <i class="livicon" data-name="home" data-size="16" data-color="#000"></i>
-                    Dashboard
+                <a href="{{ route('dashboard') }}"> <i class="livicon" data-name="home" data-size="18" data-loop="true"></i>
+                    Home
                 </a>
             </li>
-            <li>Encuestas</li>
-            <li class="active">Encuestas</li>
+            <li>
+                <a href="#">preguntas</a>
+            </li>
+            <li class="active">preguntas</li>
         </ol>
     </section>
 
+
     <!-- Main content -->
-
-
     <section class="content">
         <!-- Second Data Table -->
         <div class="row">
@@ -36,19 +40,24 @@
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet box default">
                     <div class="portlet-title">
-                        <div class="caption"> <i class="livicon" data-name="edit" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
-                            Editable Table
+                        <div class="caption"> <i  data-name="edit" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
+
+
+                          Encuesta {{ $encuestas->id }} : {{ $encuestas->titulo }} <br>
+                            {{ $encuestas->descripcion }}
+
+
                         </div>
                     </div>
                     <div class="portlet-body">
                         <div class="table-toolbar">
                             <div class="btn-group">
-                                <button id="sample_editable_1_new" class=" btn btn-custom">
-                                    Add New
-                                    <i class="fa fa-plus"></i>
-                                </button>
+
+                                    <a href="{{ route('create/pregunta', $encuestas->id) }}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span> Añadir pregunta</a>
+
+
                             </div>
-                            <div class="btn-group pull-right">
+                        <!--    <div class="btn-group pull-right">
                                 <button class="btn dropdown-toggle btn-custom" data-toggle="dropdown">
                                     Tools
                                     <i class="fa fa-angle-down"></i>
@@ -64,43 +73,48 @@
                                         <a href="#">Export to Excel</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div>-->
                         </div>
-                        <div id="sample_editable_1_wrapper" class="">
-                            <table class="table table-striped table-bordered table-hover dataTable no-footer" id="sample_editable_1" role="grid">
+                        <div class="panel-body">
+                            <table class="table table-bordered " id="table">
                                 <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1">Username</th>
-                                    <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
-                                                 Full Name
-                                            : activate to sort column ascending" style="width: 222px;">Full Name</th>
-                                    <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
-                                                 Points
-                                            : activate to sort column ascending" style="width: 124px;">Points</th>
-                                    <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
-                                                 Notes
-                                            : activate to sort column ascending" style="width: 152px;">Notes</th>
-                                    <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
-                                                 Edit
-                                            : activate to sort column ascending" style="width: 88px;">Edit</th>
-                                    <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
-                                                 Delete
-                                            : activate to sort column ascending" style="width: 125px;">Delete</th>
+                                <tr class="filters">
+                                    <th>id</th>
+                                    <th>id_padre</th>
+                                    <th>nombre sección</th>
+                                    <th>tipo pregunta</th>
+                                    <th>columna</th>
+                                    <th>orden</th>
+                                    <th>titulo</th>
+                                    <th>pregunta</th>
+                                    <th>ayuda</th>
+                                    <th>obligatoria</th>
+                                    <th>estilo</th>
+                                    <th>Acciones</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr role="row" class="odd">
-                                    <td class="sorting_1">Tatyana</td>
-                                    <td>Tatyana Nilson</td>
-                                    <td>1234</td>
-                                    <td class="center">power user</td>
-                                    <td>
-                                        <a class="edit" href="javascript:;">Edit</a>
-                                    </td>
-                                    <td>
-                                        <a class="delete" href="javascript:;">Delete</a>
-                                    </td>
-                                </tr>
+                                @foreach ($preguntas as $pregunta)
+                                    <tr>
+                                        <td>{{{ $pregunta->id  }}}</td>
+                                        <td>{{{ $pregunta->id_padre }}}</td>
+                                        <td>{{{ $pregunta->nombre }}}</td>
+                                        <td>{{{ $pregunta->tipo }}}</td>
+                                        <td>{{{ $pregunta->id_columna }}}</td>
+                                        <td>{{{ $pregunta->orden }}}</td>
+                                        <td>{{{ $pregunta->titulo }}}</td>
+                                        <td>{{{ $pregunta->pregunta }}}</td>
+                                        <td>{{{ $pregunta->ayuda }}}</td>
+                                        <td>{{{ $pregunta->obligatoria  }}}</td>
+                                        <td>{{{ $pregunta->estilo }}}</td>
+                                        <td>
+                                            <a href="{{ route('preguntas.update', $pregunta->id) }}"><i class="livicon" data-name="edit" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="editar pregunta"></i></a>
+
+                                            <a href="{{ route('confirm-delete/pregunta', $pregunta->id) }}" data-toggle="modal" data-target="#delete_confirm"><i class="livicon" data-name="user-remove" data-size="18" data-loop="true" data-c="#f56954" data-hc="#f56954" title="borrar pregunta"></i></a>
+
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                                 </tbody>
                             </table>
@@ -112,45 +126,10 @@
     </section>
 @stop
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {{-- page level scripts --}}
 @section('footer_scripts')
+    <script type="text/javascript" src="{{ asset('assets/vendors/datatables/select2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/vendors/datatables/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/vendors/datatables/dataTables.bootstrap.js') }}"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('#table').DataTable();
-        });
-    </script>
-
-    <div class="modal fade" id="delete_confirm" tabindex="-1" role="dialog" aria-labelledby="user_delete_confirm_title" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content"></div>
-        </div>
-    </div>
-    <script>
-        $(function () {
-            $('body').on('hidden.bs.modal', '.modal', function () {
-                $(this).removeData('bs.modal');
-            });
-        });
-    </script>
+    <script type="text/javascript" src="{{ asset('assets/js/pages/table-editable.js') }}"></script>
 @stop

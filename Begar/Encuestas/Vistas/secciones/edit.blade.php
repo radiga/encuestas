@@ -65,14 +65,14 @@
                                         <div class="form-group">
                                             <label for="nombre" class="col-sm-2 control-label">Nombre *</label>
                                             <div class="col-sm-10">
-                                                <input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control" value="{{{ Input::old('nombre', $secciones->nombre) }}}" />
+                                                <input id="nombre" name="nombre" type="text" placeholder="Descripción" class="form-control" value="{{{ Input::old('o', $secciones->nombre) }}}" />
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="descripcion" class="col-sm-2 control-label">Descripción *</label>
                                             <div class="col-sm-10">
-                                                <input id="descripcion" name="descripcion" type="text" placeholder="Descripción" class="form-control" value="{{{ Input::old('descripcion', $secciones->descripcion) }}}" />
+                                                <input id="descripcion" name="descripcion" type="text" placeholder="Descripción" class="form-control" value="{{{ Input::old('descripcion', $secciones->nombre) }}}" />
                                             </div>
                                         </div>
 
