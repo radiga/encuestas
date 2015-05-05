@@ -30,6 +30,7 @@ class preguntasController extends BegarController {
  public function Index($id_encuesta = null)
   {
 
+      session::put('id_encuesta',$id_encuesta);
       $encuestas = encuestas::find($id_encuesta);
 
       $secciones = Encuestas_secciones::where('id_encuesta', '=', $id_encuesta)->get();
@@ -79,11 +80,23 @@ class preguntasController extends BegarController {
         $rules = array(
             'id_tipo' => 'required',
             'id_seccion' => 'required',
-            'id_padre' => 'required',
             'pregunta' => 'required',
-            'obligatoria' => 'required'
+            'ayuda' => 'required',
+            'obligatoria' => 'required',
 
         );
+
+     /*   echo Input::get('id_seccion');
+        echo Input::get('id_tipo');
+        echo Input::get('titulo');
+        echo Input::get('pregunta');
+        echo Input::get('ayuda');
+        echo Input::get('id_columna');
+        echo Input::get('orden');
+        echo Input::get('obligatoria');
+        echo Input::get('estilo');
+*/
+
 
         $validator = Validator::make(Input::all(), $rules);
 
@@ -102,13 +115,17 @@ class preguntasController extends BegarController {
             $preguntas->titulo  = Input::get('titulo');
             $preguntas->pregunta  = Input::get('pregunta');
             $preguntas->ayuda  = Input::get('ayuda');
+
+            $preguntas->id_columna  = Input::get('id_columna');
+            $preguntas->orden  = Input::get('orden');
+
             $preguntas->obligatoria  = Input::get('obligatoria');
             $preguntas->estilo  = Input::get('estilo');
 
 
             if ($preguntas->save()) {
-                // Redirect to the group page
-                return Redirect::route('preguntas.index',$preguntas->id_encuesta)->with('success', Lang::get('preguntas/message.success.update'));
+
+                return Redirect::route('preguntas.index', session::get('id_encuesta'))->with('success', Lang::get('preguntas/message.success.update'));
             } else {
                 // Redirect to the group page
                 return Redirect::route('update/pregunta', $id)->with('error', Lang::get('preguntas/message.error.update'));
@@ -121,12 +138,16 @@ class preguntasController extends BegarController {
     public function getCreate($id_encuesta = null)
     {
 
-        echo $id_encuesta;
+        //echo $id_encuesta;
 
         Session::put('id_encuesta', $id_encuesta);
 
+        $secciones = Encuestas_secciones::where('id_encuesta', '=', $id_encuesta)->get();
 
-        return View('preguntas/create');
+        $tipos_preguntas = Tipos_preguntas::All();
+
+
+        return View('preguntas/create',compact('secciones','tipos_preguntas'));
     }
 
 
@@ -137,7 +158,6 @@ class preguntasController extends BegarController {
         $rules = array(
             'id_tipo' => 'required',
             'id_seccion' => 'required',
-            'id_padre' => 'required',
             'pregunta' => 'required',
             'obligatoria' => 'required'
 
@@ -160,6 +180,8 @@ class preguntasController extends BegarController {
             $preguntas->ayuda  = Input::get('ayuda');
             $preguntas->obligatoria  = Input::get('obligatoria');
             $preguntas->estilo  = Input::get('estilo');
+            $preguntas->id_columna  = Input::get('id_columna');
+            $preguntas->orden  = Input::get('orden');
 
         if ($preguntas->save()) {
             // Redirect to the new group page
